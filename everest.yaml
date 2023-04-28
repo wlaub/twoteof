@@ -1,0 +1,25 @@
+- Name: The Wednesday On The Edge Of Forever
+  Version: 1.0.0
+  Dependencies:
+    - Name: CrystallineHelper
+      Version: 1.13.0
+    - Name: Everest
+      Version: 1.3471.0
+    - Name: ExtendedVariantMode
+      Version: 0.26.7
+    - Name: FemtoHelper
+      Version: 1.9.4
+    - Name: FlaglinesAndSuch
+      Version: 1.6.2
+    - Name: FrostHelper
+      Version: 1.40.2
+    - Name: LuaCutscenes
+      Version: 0.2.7
+    - Name: MaxHelpingHand
+      Version: 1.24.6
+    - Name: VivHelper
+      Version: 1.10.11
+    - Name: What Are Little Decades Made Of
+      Version: 1.0.0
+    - Name: XaphanHelper
+      Version: 1.0.54

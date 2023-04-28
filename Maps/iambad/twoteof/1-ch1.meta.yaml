@@ -1,0 +1,9 @@
+CompleteScreen:
+    Atlas: 'Endscreens/iambad/TheWednesdayMachine'
+    Title:
+        ASide: 'iambad_WEDNESDAY_COMPLETE'
+        FullClear: 'iambad_WEDNESDAY_COMPLETE'
+    Layers:
+      - Type: 'layer'
+        Images: ['00']
+      - Type: 'ui'
