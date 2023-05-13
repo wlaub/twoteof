@@ -1,12 +1,13 @@
-RecordCount: 144
+RecordCount: 176
 
 #console load iambad/twoteof/1-ch1
 #   1
 
 #c-00
-  10
-***s
-   2
+console load iambad/twoteof/1-ch1 240 16
+ 100
+#***s
+   1
   14,U,J
    5,R
   10,R,D,X,G
@@ -76,14 +77,27 @@ RecordCount: 144
   19,R,U,K
    4,R,U,J,G
   44,R,U,K,G
-***
+#***
    2,R,U,K,G
   15,R,D,X
    3,R,U,J
   15,R,D,Z
    2,R,U,J,G
-  15,R,D,X
- 100,R,U,J
+  10,R,D,X
+   5,R
+  43,R,U,K
+***s
+#c-04
+   4,R,U,K,G
+   3,R,U,J,G
+   6,R,U,K,G
+   5,R,U,J,G
+   3,R,U,K,G
+  13,R,U,J,G
+   7,R,U,K,G
+ 100,R,U,J,G
+#***1
+
 #c-01
 
   15,R,D,X
