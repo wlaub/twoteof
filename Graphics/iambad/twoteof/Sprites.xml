@@ -1032,20 +1032,20 @@
     <Loop id="iceOffLoop" path="switch" frames="14" delay="0.08"/>
   </coreFlipSwitch>
 
-  <wallBoosterTop path="objects/wallBooster/" start="hot">
+  <wallBoosterTop path="objects/waldmo/wallBooster/" start="hot">
     <Loop id="hot" path="fireTop" frames="0-7" delay="0.035"/>
-    <Anim id="ice" path="iceTop" frames="0*10" delay="0.08" goto="ice,ice,ice,ice,ice,iceShine"/>
-    <Anim id="iceShine" path="iceTop" frames="0-4" delay="0.08" goto="ice"/>
+    <Anim id="ice" path="iceTop"/>
+    <Anim id="iceShine" path="iceTop"/>
   </wallBoosterTop>
-  <wallBoosterMid path="objects/wallBooster/" start="hot">
+  <wallBoosterMid path="objects/waldmo/wallBooster/" start="hot">
     <Loop id="hot" path="fireMid" frames="0-7" delay="0.035"/>
-    <Anim id="ice" path="iceMid" frames="0*10" delay="0.08" goto="ice,ice,ice,ice,ice,iceShine"/>
-    <Anim id="iceShine" path="iceMid" frames="0-4" delay="0.08" goto="ice"/>
+    <Anim id="ice" path="iceMid"/>
+    <Anim id="iceShine" path="iceMid"/>
   </wallBoosterMid>
-  <wallBoosterBottom path="objects/wallBooster/" start="hot">
+  <wallBoosterBottom path="objects/waldmo/wallBooster/" start="hot">
     <Loop id="hot" path="fireBottom" frames="0-7" delay="0.035"/>
-    <Anim id="ice" path="iceBottom" frames="0*10" delay="0.08" goto="ice,ice,ice,ice,ice,iceShine"/>
-    <Anim id="iceShine" path="iceBottom" frames="0-4" delay="0.08" goto="ice"/>
+    <Anim id="ice" path="iceBottom"/>
+    <Anim id="iceShine" path="iceBottom"/>
   </wallBoosterBottom>
 
   <bumpBlockCenterIce path="objects/BumpBlockNew/" start="idle">
