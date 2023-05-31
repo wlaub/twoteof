@@ -160,6 +160,7 @@
   <Tileset id="X" copy="q" path="iambad/waldmo/xtremepurp" sound="43"/>
 
   <Tileset id="y" copy="q" path="iambad/waldmo/tamewhite" sound="43"/>
+  <Tileset id="Y" copy="q" path="iambad/waldmo/tameyellow" sound="43"/>
 
   <!-- DEFAULT TILES -->
   <!-- ~~~~~~~~~~~~~ -->
