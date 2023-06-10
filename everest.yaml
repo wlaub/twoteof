@@ -5,6 +5,8 @@
       Version: 1.17.2
     - Name: CrystallineHelper
       Version: 1.13.0
+    - Name: DJMapHelper
+      Version: 1.13.2
     - Name: Everest
       Version: 1.3471.0
     - Name: ExtendedVariantMode
