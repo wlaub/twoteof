@@ -162,6 +162,8 @@
   <Tileset id="y" copy="q" path="iambad/waldmo/tamewhite" sound="43"/>
   <Tileset id="Y" copy="q" path="iambad/waldmo/tameyellow" sound="43"/>
 
+  <Tileset id="Z" copy="q" path="iambad/waldmo/solidblack" sound="43"/>
+
   <!-- DEFAULT TILES -->
   <!-- ~~~~~~~~~~~~~ -->
 
