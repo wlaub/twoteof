@@ -23,4 +23,34 @@ twoteof_car=
 [MADELINE left normal]
 Shade!
 
+# Musings
+
+twoteof_muse_refill=
+[MADELINE left normal]
+Do you believe I am {+MADELINE}?
+
+twoteof_muse_blue_key=
+[MADELINE left normal]
+You see a person where there are only pixels.
+
+twoteof_muse_yellow_key=
+[MADELINE left normal]
+Do you believe I am the mapper?
+
+twoteof_muse_2dash=
+[MADELINE left normal]
+You see a person where there are only words.
+
+twoteof_muse_red_key=
+[MADELINE left normal]
+Do you believe I exist?
+
+twoteof_muse_doublejump=
+[MADELINE left normal]
+You see a person where there are only atoms.
+
+
+
+
+
 
