@@ -143,7 +143,7 @@
   <Tileset id="r" copy="q" path="iambad/waldmo/brightyellow" sound="43"/>
   <Tileset id="R" copy="q" path="iambad/waldmo/vividyellow" sound="43"/>
 
-  <Tileset id="s" copy="q" path="iambad/waldmo/darkred" sound="43"/>
+  <Tileset id="s" copy="q" path="iambad/waldmo/emptyred" sound="43"/>
   <Tileset id="S" copy="q" path="iambad/waldmo/brightred" sound="43"/>
   <Tileset id="t" copy="q" path="iambad/waldmo/vividred" sound="43"/>
   <Tileset id="T" copy="q" path="iambad/waldmo/sinisterred" sound="43"/>
