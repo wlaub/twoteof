@@ -10,6 +10,10 @@ poem_iambad_twoteof_1_ch1_A= Wednesday
 
 iambad_WEDNESDAY_COMPLETE= Wednesday Complete
 
+iambad_twoteof_powerdown= Wednesday Acquired
+iambad_twoteof_refill= Portable Refill Acquired
+iambad_twoteof_2dash= Refill Overcharge Acquired
+iambad_twoteof_doublejump= Stupid Hat Acquired
 
 # Quips
 
