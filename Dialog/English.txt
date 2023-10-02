@@ -15,6 +15,20 @@ iambad_twoteof_refill= Portable Refill Acquired
 iambad_twoteof_2dash= Refill Overcharge Acquired
 iambad_twoteof_doublejump= Stupid Hat Acquired
 
+iambad_twoteof_blue_title=STREAMSLIP
+iambad_twoteof_blue_sub_title=Achronistic Riverbed
+
+iambad_twoteof_yellow_title=THUNDERHEAD
+iambad_twoteof_yellow_sub_title=Towering Atmospheric Phenomenon
+
+iambad_twoteof_red_title=MONOLITH
+iambad_twoteof_red_sub_title=Subterranean Complex
+
+iambad_twoteof_black_title=SKYCAVE
+iambad_twoteof_black_sub_title=Salvation?
+
+
+
 # Quips
 
 twoteof_tas=
