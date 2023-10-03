@@ -17,15 +17,23 @@ iambad_twoteof_doublejump= Stupid Hat Acquired
 
 iambad_twoteof_blue_title=STREAMSLIP
 iambad_twoteof_blue_sub_title=Achronistic Riverbed
+iambad_twoteof_blue2_title=STREAMFALL
+iambad_twoteof_blue2_sub_title=Achronistic Aquifer
 
 iambad_twoteof_yellow_title=THUNDERHEAD
 iambad_twoteof_yellow_sub_title=Towering Atmospheric Phenomenon
+iambad_twoteof_yellow2_title=TROPOPAUSE
+iambad_twoteof_yellow2_sub_title=Stratospheric Refuge
 
 iambad_twoteof_red_title=MONOLITH
 iambad_twoteof_red_sub_title=Subterranean Complex
+iambad_twoteof_red2_title=THE DEEPS
+iambad_twoteof_red2_sub_title=Overrun Mining Operation
 
 iambad_twoteof_black_title=SKYCAVE
 iambad_twoteof_black_sub_title=Salvation?
+iambad_twoteof_black2_title=THE CAVE
+iambad_twoteof_black2_sub_title=Salvation
 
 
 
