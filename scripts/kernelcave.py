@@ -206,6 +206,7 @@ class Cave():
                     if random.random() < exp_eff:
                         pending.add((tx,ty))
                         self.expand_bounds(tx, ty)
+                        continue
             if kill_cell:
                 self.dead_cells.add((x,y))
 
