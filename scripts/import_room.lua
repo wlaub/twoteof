@@ -51,6 +51,8 @@ function script.run(room, args)
     room_struct.directionalResize(new_room, "left", w)
 
     new_room["tilesFg"] = tiles
+    new_room["tilesBg"] = tiles
+
 
     map_item_utils.addRoom(state.map, new_room)
 
