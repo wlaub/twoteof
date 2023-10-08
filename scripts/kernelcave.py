@@ -606,6 +606,7 @@ while True:
     if not c.done:
         for _ in range(3):
             c.tick()
+        print(c.iterations)
 
     if 'export' in buttons_hit:
         tilestring = c.export()
