@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader, Dataset
 
 class Example():
     adj = [(0,1), (0,-1), (1,0), (-1,0)]
+#    adj = [(0,0)]
 
     def __init__(self, filename):
         with open(filename, 'r') as fp:
@@ -28,7 +29,7 @@ class Example():
         for x in range(self.w):
             for y in range(self.h):
                 pos = (x,y)
-                if self.cells.get(pos, False):
+                if self.cells.get(pos, False) != 1:
                     continue
 
                 answers, invectors = self.get_input_vectors(pos, size)
@@ -49,7 +50,7 @@ class Example():
                 for dy in range(-size, size+1):
                     dpos = (pos[0]+dx, pos[1]+dy)
                     if (dx, dy) == offset:
-                        value = 1
+                        value = 0
                         answers[offset]=self.cells.get(dpos, 0)
                     else:
                         value = self.cells.get(dpos, 0)
@@ -57,7 +58,7 @@ class Example():
         return answers, invectors
 
 
-SIZE = 7
+SIZE = 15
 DEVICE = 'cuda'
 BATCH_SIZE = 64
 
@@ -117,22 +118,24 @@ def make_data_loader(files):
     train_dataloader = DataLoader(training_data, batch_size=BATCH_SIZE)
     return train_dataloader
 
-#train_dataloader = make_data_loader({f'cave{x}.json' for x in range(7)})
-#test_dataloader = make_data_loader({f'cave{x}.json'for x in range(7, 15)})
-train_dataloader = make_data_loader({f'{x}.cave' for x in range(7)})
-test_dataloader = make_data_loader({f'{x}.cave'for x in range(7, 15)})
-
-
 class Network(nn.Module):
     def __init__(self):
         super().__init__()
 #        self.flatten = nn.Flatten()
+        layer_size = 512
         self.linear_relu_stack = nn.Sequential(
-            nn.Linear((2*SIZE+1)**2, 512),
+            nn.Linear((2*SIZE+1)**2, layer_size),
             nn.ReLU(),
-            nn.Linear(512,512),
+            nn.Linear(layer_size, layer_size),
             nn.ReLU(),
-            nn.Linear(512, 4)
+            nn.Linear(layer_size, layer_size),
+            nn.ReLU(),
+            nn.Linear(layer_size, layer_size),
+            nn.ReLU(),
+            nn.Linear(layer_size, layer_size),
+            nn.ReLU(),
+
+            nn.Linear(layer_size, 4)
             )
 
     def forward(self, x):
@@ -140,57 +143,75 @@ class Network(nn.Module):
         logits = self.linear_relu_stack(x)
         return logits
 
-model = Network().to(DEVICE)
-loss_function = nn.CrossEntropyLoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
+    def get_stuff(self, inputs):
+        inputs = torch.tensor(inputs, device=DEVICE, dtype=torch.float)
+        output = self(inputs)
+        result = {}
+        for pos, val in zip(Example.adj, output):
+            result[pos]  = val.item()
+        return result
 
-def train(dataloader, model, loss_function, optimizer):
-    size =  len(dataloader.dataset)
-    model.train()
-    for batch, (X, y) in enumerate(dataloader):
-        X,y = X.to(DEVICE), y.to(DEVICE)
+if __name__ == '__main__':
 
-        pred = model(X)
-        loss = loss_function(pred, y)
+    #train_dataloader = make_data_loader({f'cave{x}.json' for x in range(7)})
+    #test_dataloader = make_data_loader({f'cave{x}.json'for x in range(7, 15)})
+    train_dataloader = make_data_loader({f'{x}.cave' for x in range(15)})
+#    test_dataloader = make_data_loader({f'{x}.cave'for x in range(14, 15)})
+    test_dataloader = train_dataloader
 
-        loss.backward()
-        optimizer.step()
-        optimizer.zero_grad()
 
-        if batch%100 == 0:
-            loss, current = loss.item(), (batch+1)*len(X)
-            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+    model = Network().to(DEVICE)
+    loss_function = nn.CrossEntropyLoss()
+    #loss_function = nn.L1Loss()
+    optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
 
-def test(dataloader, model, loss_fn):
-    size = len(dataloader.dataset)
-    num_batches = len(dataloader)
-    model.eval()
-    test_loss, correct = 0, 0
-    with torch.no_grad():
-        for X, y in dataloader:
-            X, y = X.to(DEVICE), y.to(DEVICE)
+    def train(dataloader, model, loss_function, optimizer):
+        size =  len(dataloader.dataset)
+        model.train()
+        for batch, (X, y) in enumerate(dataloader):
+            X,y = X.to(DEVICE), y.to(DEVICE)
+
             pred = model(X)
-            test_loss += loss_fn(pred, y).item()
-            correct += (pred.argmax() == y).type(torch.float).sum().item()
-    test_loss /= num_batches
-    correct /= size
-    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+            loss = loss_function(pred, y)
 
-epochs = 500
-for t in range(epochs):
-    print(f"Epoch {t+1}\n-------------------------------")
-    train(train_dataloader, model, loss_function, optimizer)
-    test(test_dataloader, model, loss_function)
-print("Done!")
+            loss.backward()
+            optimizer.step()
+            optimizer.zero_grad()
 
-torch.save(model.state_dict(), 'model.pth')
+            if batch%300 == 0:
+                loss, current = loss.item(), (batch+1)*len(X)
+                print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
 
-#X = torch.tensor(inputs[0], device=DEVICE, dtype=torch.float)
-#print(X)
+    def test(dataloader, model, loss_fn):
+        size = len(dataloader.dataset)
+        num_batches = len(dataloader)
+        model.eval()
+        test_loss, correct = 0, 0
+        with torch.no_grad():
+            for X, y in dataloader:
+                X, y = X.to(DEVICE), y.to(DEVICE)
+                pred = model(X)
+                test_loss += loss_fn(pred, y).item()
+                correct += (pred.argmax() == y).type(torch.float).sum().item()
+        test_loss /= num_batches
+        correct /= size
+        print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
 
-#logits = model(X)
-#print(logits)
+    epochs = 80
+    for t in range(epochs):
+        print(f"Epoch {t+1}\n-------------------------------")
+        train(train_dataloader, model, loss_function, optimizer)
+        test(test_dataloader, model, loss_function)
+    print("Done!")
 
-#print(inputs[0])
-#print(outputs[0])
+    torch.save(model.state_dict(), 'model.pth')
+
+    #X = torch.tensor(inputs[0], device=DEVICE, dtype=torch.float)
+    #print(X)
+
+    #logits = model(X)
+    #print(logits)
+
+    #print(inputs[0])
+    #print(outputs[0])
 

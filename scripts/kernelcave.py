@@ -6,6 +6,9 @@ import time
 import random
 import json
 
+import torch
+from model import Network
+
 import pygame
 import pygame.gfxdraw
 from pygame.locals import *
@@ -70,9 +73,32 @@ class Kernel():
                 )
         return screen
 
+def get_input_vector(pos, cells):
+    size = 15
+    vector = []
+    for dx in range(-size, size+1):
+        for dy in range(-size, size+1):
+            dpos = (pos[0]+dx, pos[1]+dx)
+            if dpos in cells:
+                vector.append(1)
+            else:
+                vector.append(0)
+    return vector
+
+#model_2
+#size:15
+#3x512x512 hidden layers
+#
+#model_3
+#size:15
+#4x512x512 hidden layers
+#
+
+
+model = Network().to('cuda')
+model.load_state_dict(torch.load('model_3.pth'))
+
 class Cave():
-
-
     def __init__(self):
         self.cells = {(0,0)}
         self.dead_cells = set()
@@ -80,7 +106,7 @@ class Cave():
 
         self.max_bounds = [-40,40, -40,40]
 
-        self.expand = 0.85
+        self.expand = 0.25
         self.die = 0.2
         self.decay = 5
         self.bias = 0.5
@@ -129,7 +155,7 @@ class Cave():
         return x <= self.max_bounds[0] or x>= self.max_bounds[1] or y<= self.max_bounds[2] or y >= self.max_bounds[3]
 
     def get_that_stuff(self):
-        ref = initials['g-00']
+        ref = initials['g-01']
         xoff = -min(ref, key=lambda x:x[0])[0]
         yoff = -min(ref, key=lambda x:x[1])[1]
         ref = [(x[0]+xoff, x[1]+yoff) for x in ref]
@@ -143,6 +169,23 @@ class Cave():
         cy = int((max_bounds[2]+max_bounds[3])/2)
         self.iterations = 0
         self.starting_cells = set()
+        self.fixed_cells = set()
+        self.fixed_cells_ = {
+            (43,31),
+            (44,31),
+            (41,31),
+            (42,31),
+            (43,32),
+            (44,32),
+            (41,32),
+            (42,32),
+
+            (26,27),
+            (26,26),
+            (25,27),
+            (25,26),
+
+            }
 
         self.get_that_stuff()
 
@@ -193,17 +236,24 @@ class Cave():
                 self.dead_cells.add((x,y))
                 continue
             kill_cell = True
-            for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+
+            vector = get_input_vector((x,y), self.cells)
+            probs = model.get_stuff(vector)
+
+#            for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+            for (dx, dy), exp_eff in probs.items():
                     tx = x+dx
                     ty = y+dy
                     if (tx,ty) in self.cells: continue
+                    if (tx, ty) in self.fixed_cells: continue
                     kill_cell = False
 #                    if self.test_maxbounds(tx,ty): continue
                     no_options = False
 
-                    exp_eff = self.kernels[(dx,dy)].compute((x,y), self.cells)*expand
+#                    exp_eff = self.kernels[(dx,dy)].compute((x,y), self.cells)*expand
+#                    exp_eff=exp_eff*expand
 
-                    if random.random() < exp_eff:
+                    if random.random() < exp_eff*self.expand:
                         pending.add((tx,ty))
                         self.expand_bounds(tx, ty)
                         continue
@@ -262,11 +312,26 @@ class Cave():
                     scale, scale)
                 )
 
+        """
+        for x,y in self.fixed_cells:
+            x += offset[0] + 1
+            y += offset[1] + 1
+            color= (32,128,32)
+
+            screen.fill(
+                color,
+                pygame.Rect(
+                    x*scale, y*scale,
+                    scale, scale)
+                )
+        """
+
+
         koff = scale*2
         for direction, kernel in self.kernels.items():
             kscreen = kernel.render(scale*2)
             kw, kh = kscreen.get_size()
-            res = screen.blit(kscreen, (koff,scale*2))
+#            res = screen.blit(kscreen, (koff,scale*2))
             koff += kw+scale
 
     def get_size(self):
