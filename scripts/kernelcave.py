@@ -16,13 +16,14 @@ from pygame.locals import *
 pygame.init()
 
 param_defaults = {
-    'expand': 0.85,
+    'expand': 0.25,
     'die': 0.2,
     'decay': 5,
     'bias': 0.5,
 }
 
-with open('data.json', 'r') as fp:
+#with open('data.json', 'r') as fp:
+with open('data2.json', 'r') as fp:
     initials = json.load(fp)
 
 class Kernel():
@@ -155,13 +156,20 @@ class Cave():
         return x <= self.max_bounds[0] or x>= self.max_bounds[1] or y<= self.max_bounds[2] or y >= self.max_bounds[3]
 
     def get_that_stuff(self):
-        ref = initials['g-01']
-        xoff = -min(ref, key=lambda x:x[0])[0]
-        yoff = -min(ref, key=lambda x:x[1])[1]
-        ref = [(x[0]+xoff, x[1]+yoff) for x in ref]
+        ref = initials['g-05']
+        starting = ref['initial_tiles']
+        fixed = ref['fixed_tiles']
 
-        for x,y in ref:
+        both = starting + fixed
+        xoff = -min(both, key=lambda x:x[0])[0]
+        yoff = -min(both, key=lambda x:x[1])[1]
+        starting = [(x[0]+xoff, x[1]+yoff) for x in starting]
+        fixed = [(x[0]+xoff, x[1]+yoff) for x in fixed]
+
+        for x,y in starting:
             self.starting_cells.add((x,y))
+        for x,y in fixed:
+            self.fixed_cells.add((x,y))
 
     def initialize(self, max_bounds):
         self.max_bounds = max_bounds
@@ -170,22 +178,6 @@ class Cave():
         self.iterations = 0
         self.starting_cells = set()
         self.fixed_cells = set()
-        self.fixed_cells_ = {
-            (43,31),
-            (44,31),
-            (41,31),
-            (42,31),
-            (43,32),
-            (44,32),
-            (41,32),
-            (42,32),
-
-            (26,27),
-            (26,26),
-            (25,27),
-            (25,26),
-
-            }
 
         self.get_that_stuff()
 
@@ -222,6 +214,11 @@ class Cave():
 #        if self.done:
 #            return
 
+
+        start_time = time.time()
+        model_duration = 0
+        extract_duration = 0
+
         pending = set()
         no_options = True
         operation_set = self.cells-self.dead_cells
@@ -237,8 +234,14 @@ class Cave():
                 continue
             kill_cell = True
 
+            extract_start_time = time.time()
             vector = get_input_vector((x,y), self.cells)
+            extract_stop_time = time.time()
+            extract_duration = extract_stop_time-extract_start_time
+            model_start_time = time.time()
             probs = model.get_stuff(vector)
+            model_stop_time = time.time()
+            model_duration += model_stop_time-model_start_time
 
 #            for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
             for (dx, dy), exp_eff in probs.items():
@@ -262,11 +265,13 @@ class Cave():
 
         self.cells.update(pending)
         self.iterations += 1
-        if no_options or self.iterations > 1000:
+        if no_options or self.iterations > 5000:
             self.done = True
             return
 
-
+        stop_time = time.time()
+        duration = stop_time-start_time
+        print(f'{duration=:.2f}, {model_duration=:.2f}, {extract_duration=:.2f}')
 
     def render(self, screen, scale, ):
         offset = list(self.get_offset())
@@ -312,7 +317,6 @@ class Cave():
                     scale, scale)
                 )
 
-        """
         for x,y in self.fixed_cells:
             x += offset[0] + 1
             y += offset[1] + 1
@@ -324,7 +328,6 @@ class Cave():
                     x*scale, y*scale,
                     scale, scale)
                 )
-        """
 
 
         koff = scale*2
@@ -528,7 +531,7 @@ sliders = {}
 sliders['expand'] = Slider(
     wbase + 16 + slider_width, 8,
     slider_width, slider_height,
-    0,1,param_defaults['expand']
+    0,0.25,param_defaults['expand']
     )
 sliders['die'] = Slider(
     wbase + 16 + slider_width*3, 8,

@@ -32,7 +32,7 @@ iambad_twoteof_red2_sub_title=Overrun Mining Operation
 
 iambad_twoteof_black_title=SKYCAVE
 iambad_twoteof_black_sub_title=Salvation?
-iambad_twoteof_black2_title=THE CAVE
+iambad_twoteof_black2_title=FINAL CAVE
 iambad_twoteof_black2_sub_title=Salvation
 
 
