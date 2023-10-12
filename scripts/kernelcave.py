@@ -156,7 +156,7 @@ class Cave():
         return x <= self.max_bounds[0] or x>= self.max_bounds[1] or y<= self.max_bounds[2] or y >= self.max_bounds[3]
 
     def get_that_stuff(self):
-        ref = initials['g-05']
+        ref = initials['g-00']
         starting = ref['initial_tiles']
         fixed = ref['fixed_tiles']
 
