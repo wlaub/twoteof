@@ -7,7 +7,7 @@ import random
 import json
 
 import torch
-from model import Network
+from model import Network, Example
 
 import pygame
 import pygame.gfxdraw
@@ -81,9 +81,11 @@ def get_input_vector(pos, cells):
         for dy in range(-size, size+1):
             dpos = (pos[0]+dx, pos[1]+dx)
             if dpos in cells:
-                vector.append(1)
+                vector.append(1.0)
             else:
-                vector.append(0)
+                vector.append(0.0)
+
+#    vector = torch.tensor(vector, device='cuda', dtype=torch.float)
     return vector
 
 #model_2
@@ -156,7 +158,7 @@ class Cave():
         return x <= self.max_bounds[0] or x>= self.max_bounds[1] or y<= self.max_bounds[2] or y >= self.max_bounds[3]
 
     def get_that_stuff(self):
-        ref = initials['g-00']
+        ref = initials['g-01']
         starting = ref['initial_tiles']
         fixed = ref['fixed_tiles']
 
@@ -211,6 +213,52 @@ class Cave():
             self.tick()
 
     def tick(self):
+
+        start_time = time.time()
+        model_duration = 0
+        extract_duration = 0
+
+        pending = set()
+        no_options = True
+        operation_set = self.cells-self.dead_cells
+        expand = self.expand
+
+        input_coords = list(operation_set)
+        extract_start = time.time()
+        input_vectors = [get_input_vector(x, self.cells) for x in input_coords]
+        extract_duration = time.time()-extract_start
+
+        model_start = time.time()
+        test_vectors=torch.tensor(input_vectors, device='cuda', dtype=torch.float)
+        test_outputs = model(test_vectors)
+        model_duration = time.time()-model_start
+
+        for (x,y), probs in zip(input_coords, test_outputs):
+            for (dx, dy), exp_eff in zip(Example.adj, probs):
+                tx = x+dx
+                ty = y+dy
+                if (tx, ty) in self.fixed_cells: continue
+                if random.random() < exp_eff.item()*self.expand:
+                    self.cells.add((tx, ty))
+                    self.expand_bounds(tx,ty)
+
+        for (x,y) in operation_set:
+            adj = {(x+1,y), (x-1, y), (x,y+1), (x,y-1)}
+            if adj.issubset(self.cells):
+                self.dead_cells.add((x,y))
+
+        self.iterations += 1
+        if self.iterations > 5000:
+            self.done = True
+            return
+
+        stop_time = time.time()
+        duration = stop_time-start_time
+        print(f'{duration=:.2f}, {model_duration=:.2f}, {extract_duration=:.2f}')
+
+
+
+    def tick_old(self):
 #        if self.done:
 #            return
 
