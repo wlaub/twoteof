@@ -135,32 +135,32 @@
     <set mask="center" tiles="9,4; 10,4; 9,5; 10,5"/>
   </Tileset>
 	
-  <Tileset id="o" copy="q" path="iambad/waldmo/darkblue" sound="43"/>
-  <Tileset id="O" copy="q" path="iambad/waldmo/brightblue" sound="43"/>
-  <Tileset id="p" copy="q" path="iambad/waldmo/vividblue" sound="43"/>
+  <Tileset id="o" copy="q" path="iambad/waldmo/darkblue_bg" sound="43"/>
+  <Tileset id="O" copy="q" path="iambad/waldmo/brightblue_bg" sound="43"/>
+  <Tileset id="p" copy="q" path="iambad/waldmo/vividblue_bg" sound="43"/>
 
-  <Tileset id="Q" copy="q" path="iambad/waldmo/darkyellow" sound="43"/>
-  <Tileset id="r" copy="q" path="iambad/waldmo/brightyellow" sound="43"/>
-  <Tileset id="R" copy="q" path="iambad/waldmo/vividyellow" sound="43"/>
+  <Tileset id="Q" copy="q" path="iambad/waldmo/darkyellow_bg" sound="43"/>
+  <Tileset id="r" copy="q" path="iambad/waldmo/brightyellow_bg" sound="43"/>
+  <Tileset id="R" copy="q" path="iambad/waldmo/vividyellow_bg" sound="43"/>
 
-  <Tileset id="s" copy="q" path="iambad/waldmo/emptyred" sound="43"/>
-  <Tileset id="S" copy="q" path="iambad/waldmo/brightred" sound="43"/>
-  <Tileset id="t" copy="q" path="iambad/waldmo/vividred" sound="43"/>
-  <Tileset id="T" copy="q" path="iambad/waldmo/sinisterred" sound="43"/>
+  <Tileset id="s" copy="q" path="iambad/waldmo/emptyred_bg" sound="43"/>
+  <Tileset id="S" copy="q" path="iambad/waldmo/brightred_bg" sound="43"/>
+  <Tileset id="t" copy="q" path="iambad/waldmo/vividred_bg" sound="43"/>
+  <Tileset id="T" copy="q" path="iambad/waldmo/sinisterred_bg" sound="43"/>
 
-  <Tileset id="u" copy="q" path="iambad/waldmo/darkblack" sound="43"/>
-  <Tileset id="U" copy="q" path="iambad/waldmo/brightblack" sound="43"/>
-  <Tileset id="v" copy="q" path="iambad/waldmo/vividblack2" sound="43"/>
+  <Tileset id="u" copy="q" path="iambad/waldmo/darkblack_bg" sound="43"/>
+  <Tileset id="U" copy="q" path="iambad/waldmo/brightblack_bg" sound="43"/>
+  <Tileset id="v" copy="q" path="iambad/waldmo/vividblack2_bg" sound="43"/>
 
-  <Tileset id="V" copy="q" path="iambad/waldmo/darkwhite" sound="43"/>
-  <Tileset id="w" copy="q" path="iambad/waldmo/brightwhite" sound="43"/>
+  <Tileset id="V" copy="q" path="iambad/waldmo/darkwhite_bg" sound="43"/>
+  <Tileset id="w" copy="q" path="iambad/waldmo/brightwhite_bg" sound="43"/>
 
-  <Tileset id="W" copy="q" path="iambad/waldmo/subduedpurp" sound="43"/>
-  <Tileset id="x" copy="q" path="iambad/waldmo/vividpurp" sound="43"/>
-  <Tileset id="X" copy="q" path="iambad/waldmo/xtremepurp" sound="43"/>
+  <Tileset id="W" copy="q" path="iambad/waldmo/subduedpurp_bg" sound="43"/>
+  <Tileset id="x" copy="q" path="iambad/waldmo/vividpurp_bg" sound="43"/>
+  <Tileset id="X" copy="q" path="iambad/waldmo/xtremepurp_bg" sound="43"/>
 
-  <Tileset id="y" copy="q" path="iambad/waldmo/tamewhite" sound="43"/>
-  <Tileset id="Y" copy="q" path="iambad/waldmo/tameyellow" sound="43"/>
+  <Tileset id="y" copy="q" path="iambad/waldmo/tamewhite_bg" sound="43"/>
+  <Tileset id="Y" copy="q" path="iambad/waldmo/tameyellow_bg" sound="43"/>
 
   <Tileset id="Z" copy="q" path="iambad/waldmo/solidblack" sound="43"/>
 
