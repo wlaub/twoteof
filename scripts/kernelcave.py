@@ -166,9 +166,13 @@ class Cave():
     def test_maxbounds(self, x, y):
         return x <= self.max_bounds[0] or x>= self.max_bounds[1] or y<= self.max_bounds[2] or y >= self.max_bounds[3]
 
+    def test_bounds(self, x, y):
+        return x <= self.bounds[0] or x>= self.bounds[1] or y<= self.bounds[2] or y >= self.bounds[3]
+
+
     def get_that_stuff(self, name):
         self.name = name
-        ref = initials[name]
+        self.input_data = ref = initials[name]
         starting = ref['initial_tiles']
         fixed = ref['fixed_tiles']
 
@@ -177,6 +181,10 @@ class Cave():
         yoff = -min(both, key=lambda x:x[1])[1]
         starting = [(x[0]+xoff, x[1]+yoff) for x in starting]
         fixed = [(x[0]+xoff, x[1]+yoff) for x in fixed]
+
+        self.events = {}
+        for event_name, events in self.input_data['events'].items():
+            self.events[event_name] = {(x+xoff, y+yoff) for x,y in events}
 
         for x,y in starting:
             self.starting_cells.add((x,y))
@@ -295,8 +303,7 @@ class Cave():
         self.cells.update(self.history[self.index])
         self.dead_cells.update(self.dead_history[self.index])
 
-
-    def render(self, screen, scale, ):
+    def get_render_offset(self):
         offset = list(self.get_offset())
         wmax = self.max_bounds[1]-self.max_bounds[0]
         hmax = self.max_bounds[3]-self.max_bounds[2]
@@ -304,6 +311,10 @@ class Cave():
         centering = int((wmax-w)/2), int((hmax-h)/2)
         offset[0] += centering[0]
         offset[1] += centering[1]
+        return offset, centering, w, h
+
+    def render(self, screen, scale, extra_points = set()):
+        offset, centering, w, h = self.get_render_offset()
 
         bg_color = (192,192,192)
         if not self.validate():
@@ -316,57 +327,31 @@ class Cave():
                 (w+1)*scale, (h+1)*scale)
             )
 
-        for x,y in self.last_saved-self.cells:
-            color = (92,92,92)
+        def render_points(points, color):
+            for x,y in points:
+                x += offset[0] + 1
+                y += offset[1] + 1
 
-            x += offset[0] + 1
-            y += offset[1] + 1
-
-            screen.fill(
-                color,
-                pygame.Rect(
-                    x*scale, y*scale,
-                    scale, scale)
-                )
-
+                screen.fill(
+                    color,
+                    pygame.Rect(
+                        x*scale, y*scale,
+                        scale, scale)
+                    )
 
 
-        for x,y in self.cells:
-            color = (32,32,32)
+        render_points(self.last_saved-self.cells, (92,92,92))
 
-            x += offset[0] + 1
-            y += offset[1] + 1
+        render_points(self.cells, (32,32,32))
 
-            screen.fill(
-                color,
-                pygame.Rect(
-                    x*scale, y*scale,
-                    scale, scale)
-                )
+        render_points(self.cells&extra_points, (64,64,192))
 
-        for x,y in self.starting_cells:
-            x += offset[0] + 1
-            y += offset[1] + 1
-            color= (128,32,32)
+        render_points(self.starting_cells, (128,32,32))
 
-            screen.fill(
-                color,
-                pygame.Rect(
-                    x*scale, y*scale,
-                    scale, scale)
-                )
+        render_points(self.fixed_cells, (32,128,32))
 
-        for x,y in self.fixed_cells:
-            x += offset[0] + 1
-            y += offset[1] + 1
-            color= (32,128,32)
-
-            screen.fill(
-                color,
-                pygame.Rect(
-                    x*scale, y*scale,
-                    scale, scale)
-                )
+        render_points(self.events.get('dash', set()),
+                        (32,255,192))
 
 
         koff = scale*2
@@ -558,7 +543,7 @@ def get_next_file(prefix=''):
     idx = max((int(x[start:].split('.')[0]) for x in files))+1
     return f'{prefix}_{idx}.cave'
 
-w,h = 210,180
+w,h = 240,150
 
 bounds = [0, w, 0, h]
 c= Cave()
@@ -566,7 +551,7 @@ c.initialize(bounds, 'g-08')
 
 
 bounds = [0,w,0,h]
-scale = 3
+scale = 5
 
 wbase = w*scale
 hbase = h*scale
@@ -665,6 +650,16 @@ while True:
     shift = keys[pygame.key.key_code('left shift')]
     ctrl = keys[pygame.key.key_code('left ctrl')]
 
+    offset,_,_,_ = c.get_render_offset()
+    cpos = [int((m-scale)/scale-o) for m,o in zip(mpos, offset)]
+    brush = set()
+    if not running and not c.test_bounds(*cpos):
+        bw = 2
+        for x in range(-bw,bw+1):
+            for y in range(-bw,bw+1):
+                brush.add((cpos[0]+x, cpos[1]+y))
+        if mmid:
+            c.cells -= brush
 
     if mleft:
         for name, slider in sliders.items():
@@ -736,10 +731,10 @@ while True:
 
 
 
-    c.render(screen, scale)
+    c.render(screen, scale, extra_points=brush)
 
 
-    text = font.render(f'{c.name}: {c.index}/{c.iterations}', True, (0,0,0))
+    text = font.render(f'{c.name}: {c.index}/{c.iterations} | {cpos[0], cpos[1]}', True, (0,0,0))
     screen.blit(text, (16,16))
 
 

@@ -225,6 +225,7 @@ def map_tile(x,y):
     return math.floor(x/8), math.floor(y/8)
 
 durations = defaultdict(list)
+events = defaultdict(lambda: defaultdict(set))
 
 for run in runs:
     if tuw.ControlFlags.dead in run.control_flags:
@@ -234,12 +235,21 @@ for run in runs:
 
     durations[run_room].append(run.states[-1].timestamp-run.states[0].timestamp)
 
+    not_dashing = True
     for state in run.states:
         box = render.Plotter._state_box(state)
         center = [box[0] + box[2]/2, box[1]-box[3]/2]
 #        center = [box[0] + box[2]/2, box[1]]
         center = map_tile(*center)
         room_tiles[run_room].add(tuple(center))
+
+        if state.state == tuw.PlayerState.dash:
+            if not_dashing:
+                not_dashing=False
+                events[run_room]['dash'].add(center)
+        else:
+            not_dashing = True
+
 
     room_plotters[run_room].add_run(run, lambda x: True)
 
@@ -264,9 +274,14 @@ if filename is not None:
     print(f'dumping to {filename}')
     room_tiles = {k:list(v) for k,v in room_tiles.items()}
     fixed_tiles = {k:list(v) for k,v in fixed_tiles.items()}
+    event_data = {}
+    for room, room_events in events.items():
+        event_data[room] = {k:list(v) for k,v in room_events.items()}
+
     data = {k: {
         'initial_tiles':room_tiles[k],
         'fixed_tiles':fixed_tiles.get(k, []),
+        'events': event_data.get(k, {}),
         } for k in room_tiles.keys()}
     with open(filename, 'w') as fp:
         json.dump(data, fp)
