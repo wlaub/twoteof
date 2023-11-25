@@ -669,8 +669,12 @@ while True:
 
     if 'run' in buttons_hit:
         running = not running
+
         if running:
             c.iterations = c.index
+            buttons['run'].label = 'pause'
+        else:
+            buttons['run'].label = 'run'
 
     N = 1
     if shift: N = 10
