@@ -5,15 +5,19 @@ import glob, os
 import time
 import random
 import json
+from collections import OrderedDict
 
 import torch
 from model import Network, Example
 
 import pygame
 import pygame.gfxdraw
+import pygame.font
 from pygame.locals import *
 
 pygame.init()
+pygame.font.init()
+font = pygame.font.Font(size=18)
 
 param_defaults = {
     'expand': 0.25,
@@ -116,6 +120,11 @@ class Cave():
 
         self.done = False
 
+        self.history = OrderedDict()
+        self.dead_history = OrderedDict()
+
+        self.name = ''
+
         self.make_kernels()
 
     def make_kernels(self):
@@ -157,8 +166,9 @@ class Cave():
     def test_maxbounds(self, x, y):
         return x <= self.max_bounds[0] or x>= self.max_bounds[1] or y<= self.max_bounds[2] or y >= self.max_bounds[3]
 
-    def get_that_stuff(self):
-        ref = initials['g-01']
+    def get_that_stuff(self, name):
+        self.name = name
+        ref = initials[name]
         starting = ref['initial_tiles']
         fixed = ref['fixed_tiles']
 
@@ -173,15 +183,17 @@ class Cave():
         for x,y in fixed:
             self.fixed_cells.add((x,y))
 
-    def initialize(self, max_bounds):
+    def initialize(self, max_bounds, name):
         self.max_bounds = max_bounds
         cx = int((max_bounds[1]+max_bounds[0])/2)
         cy = int((max_bounds[2]+max_bounds[3])/2)
         self.iterations = 0
+        self.index = 0
         self.starting_cells = set()
         self.fixed_cells = set()
+        self.last_saved = set()
 
-        self.get_that_stuff()
+        self.get_that_stuff(name)
 
         if False:
             for i in range(-10,10):
@@ -199,6 +211,8 @@ class Cave():
             self.expand_bounds(x,y)
 
         self.cells = set(self.starting_cells)
+        self.history[0] = self.starting_cells
+        self.dead_history[0] = set()
 
         self.dead_cells = set()
 
@@ -207,8 +221,8 @@ class Cave():
 
 
 
-    def generate(self, max_bounds):
-        self.initialize(max_bounds)
+    def generate(self, max_bounds, name):
+        self.initialize(max_bounds, name)
         while not self.done:
             self.tick()
 
@@ -233,21 +247,33 @@ class Cave():
         test_outputs = model(test_vectors)
         model_duration = time.time()-model_start
 
+        delta = set()
+
         for (x,y), probs in zip(input_coords, test_outputs):
             for (dx, dy), exp_eff in zip(Example.adj, probs):
                 tx = x+dx
                 ty = y+dy
                 if (tx, ty) in self.fixed_cells: continue
                 if random.random() < exp_eff.item()*self.expand:
-                    self.cells.add((tx, ty))
+                    if not (tx,ty) in self.cells:
+                        delta.add((tx,ty))
+                        self.cells.add((tx, ty))
+
                     self.expand_bounds(tx,ty)
 
+        dead_delta = set()
         for (x,y) in operation_set:
             adj = {(x+1,y), (x-1, y), (x,y+1), (x,y-1)}
             if adj.issubset(self.cells):
                 self.dead_cells.add((x,y))
+                dead_delta.add((x,y))
 
         self.iterations += 1
+        self.index = self.iterations
+
+        self.history[self.iterations] = delta
+        self.dead_history[self.iterations] = dead_delta
+
         if self.iterations > 5000:
             self.done = True
             return
@@ -257,69 +283,18 @@ class Cave():
         print(f'{duration=:.2f}, {model_duration=:.2f}, {extract_duration=:.2f}')
 
 
+    def step_backward(self):
+        if self.index == 0: return
+        self.cells -= self.history[self.index]
+        self.dead_cells -= self.dead_history[self.index]
+        self.index -= 1
 
-    def tick_old(self):
-#        if self.done:
-#            return
+    def step_forward(self):
+        if self.index == self.iterations: return
+        self.index += 1
+        self.cells.update(self.history[self.index])
+        self.dead_cells.update(self.dead_history[self.index])
 
-
-        start_time = time.time()
-        model_duration = 0
-        extract_duration = 0
-
-        pending = set()
-        no_options = True
-        operation_set = self.cells-self.dead_cells
-        expand = self.expand
-        die = self.die
-
-        if len(operation_set) >0:
-            expand = expand*(self.decay+1)/(self.decay+len(operation_set))
-
-        for x,y in operation_set:
-            if False and len(operation_set) > 1 and random.random() < die:
-                self.dead_cells.add((x,y))
-                continue
-            kill_cell = True
-
-            extract_start_time = time.time()
-            vector = get_input_vector((x,y), self.cells)
-            extract_stop_time = time.time()
-            extract_duration = extract_stop_time-extract_start_time
-            model_start_time = time.time()
-            probs = model.get_stuff(vector)
-            model_stop_time = time.time()
-            model_duration += model_stop_time-model_start_time
-
-#            for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
-            for (dx, dy), exp_eff in probs.items():
-                    tx = x+dx
-                    ty = y+dy
-                    if (tx,ty) in self.cells: continue
-                    if (tx, ty) in self.fixed_cells: continue
-                    kill_cell = False
-#                    if self.test_maxbounds(tx,ty): continue
-                    no_options = False
-
-#                    exp_eff = self.kernels[(dx,dy)].compute((x,y), self.cells)*expand
-#                    exp_eff=exp_eff*expand
-
-                    if random.random() < exp_eff*self.expand:
-                        pending.add((tx,ty))
-                        self.expand_bounds(tx, ty)
-                        continue
-            if kill_cell:
-                self.dead_cells.add((x,y))
-
-        self.cells.update(pending)
-        self.iterations += 1
-        if no_options or self.iterations > 5000:
-            self.done = True
-            return
-
-        stop_time = time.time()
-        duration = stop_time-start_time
-        print(f'{duration=:.2f}, {model_duration=:.2f}, {extract_duration=:.2f}')
 
     def render(self, screen, scale, ):
         offset = list(self.get_offset())
@@ -341,10 +316,26 @@ class Cave():
                 (w+1)*scale, (h+1)*scale)
             )
 
-        for x,y in self.cells:
+        for x,y in self.last_saved-self.cells:
+            color = (92,92,92)
+
             x += offset[0] + 1
             y += offset[1] + 1
+
+            screen.fill(
+                color,
+                pygame.Rect(
+                    x*scale, y*scale,
+                    scale, scale)
+                )
+
+
+
+        for x,y in self.cells:
             color = (32,32,32)
+
+            x += offset[0] + 1
+            y += offset[1] + 1
 
             screen.fill(
                 color,
@@ -494,11 +485,12 @@ class Slider():
             )
 
 class Button():
-    def __init__(self, x, y, w, h):
+    def __init__(self, x, y, w, h, label):
         self.x = x
         self.y = y
         self.w = w
         self.h = h
+        self.label = label
 
         self.active = False
 
@@ -522,6 +514,11 @@ class Button():
                 self.w, self.h
                 )
             )
+
+        text = font.render(self.label, True, (0,0,0))
+        cx = self.x+self.w/2-text.get_width()/2
+        cy = self.y+self.h/2-text.get_height()/2
+        screen.blit(text, (cx, cy))
 
     def get_hit(self, x, y):
         if x < self.x or x > self.x+self.w:
@@ -552,20 +549,22 @@ class Button():
             return False
         return True
 
-def get_next_file():
-    files = glob.glob('*.cave')
+def get_next_file(prefix=''):
+    files = glob.glob(f'{prefix}_*.cave')
     if len(files) == 0:
-        return '0.cave'
+        return f'{prefix}_0.cave'
 
-    idx = max((int(x.split('.')[0]) for x in files))+1
-    return f'{idx}.cave'
+    start = len(prefix)+1
+    idx = max((int(x[start:].split('.')[0]) for x in files))+1
+    return f'{prefix}_{idx}.cave'
 
+w,h = 210,180
 
-bounds = [0, 160, 0, 160]
+bounds = [0, w, 0, h]
 c= Cave()
-c.initialize(bounds)
+c.initialize(bounds, 'g-08')
 
-w,h = 150,150
+
 bounds = [0,w,0,h]
 scale = 3
 
@@ -573,7 +572,7 @@ wbase = w*scale
 hbase = h*scale
 
 slider_width = 10
-slider_height = hbase-80
+slider_height = hbase-160
 
 sliders = {}
 sliders['expand'] = Slider(
@@ -598,16 +597,38 @@ sliders['bias'] = Slider(
     )
 
 
-
+yspace = 36
 buttons = {}
 buttons['gen'] = Button(
     wbase + 16+slider_width, 8+slider_height+8,
-    slider_width*(2*len(sliders)-1), 20
+    slider_width*(2*len(sliders)-1), 20,
+    'reset'
     )
+buttons['run'] = Button(
+    wbase + 16+slider_width, 8+slider_height+8+yspace,
+    slider_width*(2*len(sliders)-1), 20,
+    'run'
+    )
+
+buttons['back'] = Button(
+    wbase + 16+slider_width, 8+slider_height+8+yspace*2,
+    slider_width*2, 20,
+    '<'
+    )
+buttons['forward'] = Button(
+    wbase + 16+slider_width*6, 8+slider_height+8+yspace*2,
+    slider_width*2, 20,
+    '>'
+    )
+
+
+
 buttons['export'] = Button(
-    wbase + 16+slider_width, 8+slider_height+8+48,
-    slider_width*(2*len(sliders)-1), 20
+    wbase + 16+slider_width, 8+slider_height+8+yspace*3,
+    slider_width*(2*len(sliders)-1), 20,
+    'export'
     )
+
 
 
 
@@ -618,7 +639,9 @@ screen = pygame.display.set_mode((width+16, height+16))
 screen.fill((255,255,255))
 
 
+running = False
 while True:
+    start_time = time.time()
     buttons_hit = set()
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -638,11 +661,32 @@ while True:
     mleft, mmid, mright = pygame.mouse.get_pressed()
     mpos = pygame.mouse.get_pos()
 
+    keys = pygame.key.get_pressed()
+    shift = keys[pygame.key.key_code('left shift')]
+    ctrl = keys[pygame.key.key_code('left ctrl')]
+
+
     if mleft:
         for name, slider in sliders.items():
             slider.on_mouse(*mpos)
         for name, button in buttons.items():
             button.on_mouse(*mpos)
+
+    if 'run' in buttons_hit:
+        running = not running
+        if running:
+            c.iterations = c.index
+
+    N = 1
+    if shift: N = 10
+    if ctrl: N = 50
+    if 'back' in buttons_hit and not running:
+        for _ in range(N):
+            c.step_backward()
+    if 'forward' in buttons_hit and not running:
+        for _ in range(N):
+            c.step_forward()
+
 
     if 'gen' in buttons_hit:
 #        c = Cave()
@@ -650,18 +694,17 @@ while True:
         c.die = sliders['die'].value
         c.decay = sliders['decay'].value
         c.bias = sliders['bias'].value
-        c.initialize(bounds)
+        c.initialize(bounds, c.name)
 #        c.generate_valid(bounds)
 #        print(c.bounds)
 #        print(f'{c.expand=}\n{c.die=}\n{c.decay=}\n{c.bias=}')
-    if not c.done:
-        for _ in range(3):
-            c.tick()
-        print(c.iterations)
+    if not c.done and running:
+        c.tick()
 
     if 'export' in buttons_hit:
         tilestring = c.export()
-        filename = get_next_file()
+        filename = get_next_file(c.name)
+        c.last_saved = set(c.cells)
         with open(filename, 'w') as fp:
             fp.write(tilestring)
         print(f'Wrote {filename}')
@@ -694,6 +737,15 @@ while True:
 
 
     c.render(screen, scale)
+
+
+    text = font.render(f'{c.name}: {c.index}/{c.iterations}', True, (0,0,0))
+    screen.blit(text, (16,16))
+
+
     pygame.display.update()
-    time.sleep(0.05)
+    stop_time = time.time()
+    wait = 0.1-(stop_time - start_time)
+    if wait > 0:
+        time.sleep(wait)
 
