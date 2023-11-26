@@ -38,6 +38,8 @@ function script.run(room, args)
     local raw_bg = file:read("*a")
     file:close()
 
+    raw_fg = string.gsub(raw_fg, 'U','v')
+
     local room_name = 'g-import'
 
     local new_room = state.getRoomByName(room_name)

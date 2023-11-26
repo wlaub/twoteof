@@ -58,7 +58,7 @@ room_offsets = {
 room_offsets = {k:(v[0]*8, v[1]*8) for k,v in room_offsets.items()}
 
 lock_blocks = {
-'g-00': [(560,240)],
+'g-00': [(560,240),(752,232),(752,264)],
 'g-01': [(608,24), (120,160)],
 'g-03b': [(384,416)],
 'g-05': [(88,0)],
@@ -71,6 +71,13 @@ lock_blocks = {
 'g-13': [(152,176)],
 }
 
+open_blocks = {
+'g-01':[
+    (808,40,8,56),
+    (0,136,8,24),
+    ],
+}
+
 fixed_blocks = {
 'g-00': [
     (312,320,32,16),
@@ -78,6 +85,7 @@ fixed_blocks = {
     (352,104,32,16),
     (720,336,48,16),
     (0,96,48,16),
+    (720,224,48,16),
     ],
 'g-01': [
     (600,272,32,16),
@@ -97,6 +105,7 @@ fixed_blocks = {
     (768,512,16,16),
     (0,160,48,16),
     (0,0,16,136),
+    (760,32,56,16),
     ],
 'g-03b': [
     (1328,432,32,16),
@@ -258,6 +267,12 @@ for room_name, tiles in room_tiles.items():
     for x, y in lock_blocks.get(room_name, []):
         for dx in [8,16]:
             for dy in [8,16]:
+                pos = map_tile(xoff+x+dx, yoff+y+dy)
+                tiles.add(pos)
+
+    for x, y, w, h in open_blocks.get(room_name, []):
+        for dx in range(w):
+            for dy in range(h):
                 pos = map_tile(xoff+x+dx, yoff+y+dy)
                 tiles.add(pos)
 

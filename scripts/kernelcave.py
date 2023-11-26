@@ -547,7 +547,7 @@ w,h = 240,150
 
 bounds = [0, w, 0, h]
 c= Cave()
-c.initialize(bounds, 'g-08')
+c.initialize(bounds, 'g-01')
 
 
 bounds = [0,w,0,h]
@@ -738,7 +738,7 @@ while True:
     c.render(screen, scale, extra_points=brush)
 
 
-    text = font.render(f'{c.name}: {c.index}/{c.iterations} | {cpos[0], cpos[1]}', True, (0,0,0))
+    text = font.render(f'{c.name}: {c.index}/{c.iterations} | {cpos[0], cpos[1]} | {c.expand:04f}', True, (0,0,0))
     screen.blit(text, (16,16))
 
 
