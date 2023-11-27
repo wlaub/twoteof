@@ -43,7 +43,8 @@ function script.run(room, args)
     local room_name = 'g-import'
 
     local new_room = state.getRoomByName(room_name)
-    if new_room == nil then
+    local is_new = (new_room == nil)
+    if is_new then
         new_room = utils.deepcopy(room)
     end
 
@@ -71,8 +72,9 @@ function script.run(room, args)
 
     new_room["tilesBg"] = tiles
 
-
-    map_item_utils.addRoom(state.map, new_room)
+    if is_new then
+        map_item_utils.addRoom(state.map, new_room)
+    end
 
 end
 
