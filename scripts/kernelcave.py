@@ -547,7 +547,7 @@ w,h = 240,150
 
 bounds = [0, w, 0, h]
 c= Cave()
-c.initialize(bounds, 'g-07')
+c.initialize(bounds, 'g-10')
 
 
 bounds = [0,w,0,h]
