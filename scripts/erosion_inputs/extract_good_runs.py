@@ -53,6 +53,7 @@ room_offsets = {
 'g-11': (-1746,460),
 'g-12': (-1838,440),
 'g-13': (-1960,547),
+'g-14': (-2303,531),
 }
 
 room_offsets = {k:(v[0]*8, v[1]*8) for k,v in room_offsets.items()}
@@ -121,6 +122,13 @@ open_blocks = {
     (1208,80,48,8),
     (1304,0,16,104),
     ],
+'g-14': [
+    (0,160,686*4,16),
+#    (686,168,686,48),
+#    (1372,176,686,32),
+#    (2058,184,686,16),
+    ],
+
 }
 
 fixed_blocks = {
@@ -319,6 +327,8 @@ for run in runs:
 
     room_plotters[run_room].add_run(run, lambda x: True)
 
+room_tiles['g-14'] = set()
+
 for room_name, tiles in room_tiles.items():
     xoff, yoff = room_offsets.get(room_name, (0,0))
     for x, y in lock_blocks.get(room_name, []):
@@ -368,7 +378,7 @@ total = 0
 print('Durations:')
 for room_name, durs in durations.items():
     if not 'g' in room_name: continue
-    if '14' in room_name: continue
+#    if '14' in room_name: continue
 
     avg = sum(durs)/len(durs)
     avg = max(durs)

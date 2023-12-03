@@ -26,6 +26,8 @@ param_defaults = {
     'bias': 0.5,
 }
 
+FINAL_BIAS = True
+
 #with open('data.json', 'r') as fp:
 with open('data2.json', 'r') as fp:
     initials = json.load(fp)
@@ -262,7 +264,10 @@ class Cave():
                 tx = x+dx
                 ty = y+dy
                 if (tx, ty) in self.fixed_cells: continue
-                if random.random() < exp_eff.item()*self.expand:
+                expand = self.expand
+                if FINAL_BIAS:
+                    expand/=(1+2*tx/343)
+                if random.random() < exp_eff.item()*expand:
                     if not (tx,ty) in self.cells:
                         delta.add((tx,ty))
                         self.cells.add((tx, ty))
@@ -543,15 +548,16 @@ def get_next_file(prefix=''):
     idx = max((int(x[start:].split('.')[0]) for x in files))+1
     return f'{prefix}_{idx}.cave'
 
-w,h = 240,150
+#w,h = 240,150
+w,h = 375,150
 
 bounds = [0, w, 0, h]
 c= Cave()
-c.initialize(bounds, 'g-13')
+c.initialize(bounds, 'g-14')
 
 
 bounds = [0,w,0,h]
-scale = 5
+scale = 2
 
 wbase = w*scale
 hbase = h*scale
