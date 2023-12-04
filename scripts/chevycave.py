@@ -283,6 +283,7 @@ class Button():
         return True
 
 def get_next_file():
+    return 'last_room.cave'
     files = glob.glob('*.cave')
     if len(files) == 0:
         return '0.cave'
