@@ -35,6 +35,8 @@ iambad_twoteof_black_sub_title=Salvation?
 iambad_twoteof_black2_title=FINAL CAVE
 iambad_twoteof_black2_sub_title=Salvation
 
+iambad_twoteof_purp_title=THE SOUTHWESTERN CAVES
+iambad_twoteof_purp_sub_title=Mindless Detritus
 
 
 # Quips
