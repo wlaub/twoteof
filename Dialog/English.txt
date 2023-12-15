@@ -31,9 +31,9 @@ iambad_twoteof_red2_title=THE DEEPS
 iambad_twoteof_red2_sub_title=Overrun Mining Operation
 
 iambad_twoteof_black_title=SKYCAVE
-iambad_twoteof_black_sub_title=Salvation?
+iambad_twoteof_black_sub_title=A Distant Light | Salvation?
 iambad_twoteof_black2_title=FINAL CAVE
-iambad_twoteof_black2_sub_title=Salvation
+iambad_twoteof_black2_sub_title=The Black Wind Howls
 
 iambad_twoteof_purp_title=THE SOUTHWESTERN CAVES
 iambad_twoteof_purp_sub_title=Mindless Detritus
@@ -43,7 +43,8 @@ iambad_twoteof_purp_sub_title=Mindless Detritus
 
 twoteof_tas=
 [MADELINE left normal]
-Woah, is this a TAS?
+woah, am i ~tasbot~?
+
 
 twoteof_owo=
 [MADELINE left peaceful]

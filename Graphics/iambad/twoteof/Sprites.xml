@@ -612,14 +612,14 @@
   <key path="collectables/waldmo/wednesdayberry/" start="idle">
     <Justify x=".5" y=".5" />
     <Loop id="idle" path="idle" delay="0.07" frames="0-15"/>
-    <Anim id="enter" path="enter" delay="0.2"/>
+    <Anim id="enter" path="enter" delay="0.1"/>
   </key>
   
-  <lockdoor_wood path="objects/door/lockdoor" start="idle">
+  <lockdoor_wood path="objects/waldmo/door/lockdoor" start="idle">
     <Justify x="0.5" y="0.5" />
     <Loop id="idle" delay="0.1" frames="0"/>
-    <Anim id="open" delay="0.06" frames="0-9"/>
-    <Anim id="burst" delay="0.06" frames="10-18"/>
+    <Anim id="open" delay="0.06" frames="2,3,4,5*7"/>
+    <Anim id="burst" delay="0.06" frames="6-11,12*3"/>
   </lockdoor_wood>
   
   <lockdoor_temple_a path="objects/door/lockdoorTempleA" start="idle">
