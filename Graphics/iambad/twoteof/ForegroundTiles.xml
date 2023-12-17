@@ -164,6 +164,24 @@
   <Tileset id="0" copy="q" path="iambad/waldmo/vividwhite" sound="43"/>
 
 
+  <Tileset id="A" path="iambad/waldmo/forcefield" sound="12">
+    <!-- h pillar left -->
+    <set mask="x0x-011-x0x" tiles="0,0"/>
+    <!-- h pillar == -->
+    <set mask="x0x-111-x0x" tiles="1,0"/>
+    <!-- h pillar right -->
+    <set mask="x0x-110-x0x" tiles="2,0"/>
+
+    <!-- v pillar top -->
+    <set mask="x0x-010-x1x" tiles="0,1"/>
+    <!-- v pillar || -->
+    <set mask="x1x-010-x1x" tiles="0,2"/>
+    <!-- v pillar bottom -->
+    <set mask="x1x-010-x0x" tiles="0,2"/>
+
+
+  </Tileset>
+
 
 
   <!--
