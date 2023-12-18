@@ -813,20 +813,20 @@
     <Loop id="pull" path="pull" delay="0.08" frames="6-0,1,2"/>
   </gondola>
   
-  <booster path="objects/booster/" start="loop">
+  <booster path="objects/waldmo/booster/" start="loop">
     <Justify x="0.5" y="0.5"/>
     <Loop id="loop" path="booster" delay="0.1" frames="0-4"/>
     <Loop id="inside" path="booster" delay="0.1" frames="5-8"/>
     <Loop id="spin" path="booster" delay="0.06" frames="18-25"/>
-    <Anim id="pop" path="booster" delay="0.08" frames="9-17"/>
+    <Anim id="pop" path="boosterRed" delay="0.08" frames="9-17,35"/>
   </booster>
-  <boosterRed path="objects/booster/" start="loop">
+  <boosterRed path="objects/waldmo/booster/" start="loop">
     <Justify x="0.5" y="0.5"/>
     <Anim id="appear" path="boosterRed" delay="0.08" frames="26-34" goto="loop"/>
     <Loop id="loop" path="boosterRed" delay="0.1" frames="0-4"/>
     <Loop id="inside" path="boosterRed" delay="0.1" frames="5-8"/>
     <Loop id="spin" path="boosterRed" delay="0.06" frames="18-25"/>
-    <Anim id="pop" path="boosterRed" delay="0.08" frames="9-17"/>
+    <Anim id="pop" path="boosterRed" delay="0.08" frames="9-17,35"/>
   </boosterRed>
 
   <flyFeather path="objects/flyFeather/" start="loop">
