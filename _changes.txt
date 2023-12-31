@@ -1,0 +1,114 @@
+decorated e-02b, e-02c, tweaked e-05, e-13b, e-15, e-17, e-08
+
+Lore:
+1/2     ? out-of-place
+1/2     ! mirror
+13/13   * normal
+4/5     ~ option of in the open
+        & advisory note
+
+22 total (required)
+~27 total (optional)
+
+*c-00
+*c-00
+?c-02
+&c-08 (i don't see how i can clear this gap)
+&d-04 (next time i'm taking the stairs)
+*e-xx
+*e-xx
+~e-02
+*e-03
+*e-03
+~e-06 (badeline)
+
+*c-13
+~c-11
+!c-15x
+*c-16
+
+~d-08 et al
+&d-08x
+
+*f-06
+*f-08
+*f-10
+*f-12
+*f-13
+
+*e-02b
+*e-02c
+&e-07
+&e-15 (even if i could make it,  i don't see how i could get back from the other side -> i don't see how i could get back from the other side)
+?e-09
+~*e-12
+!e-13-bx2
+*e-13
+**e-14
+
+*g-02
+
+TODO:
+
+* trigger/entity to activate extra sounds mode
+    * sets save data enable, adds hooks
+    * similar to self destruct but simpler
+    * map sounds to various actions
+    * mouth pop on doublejump super
+    * click on doublejump
+
+* invisible tileset for ending
+* g-15 do something about the styleground
+
+* glue spinner shatter sprites
+
+* final cave booster room cutscene
+* jitter spinners in final rooms
+* monolith badeline conversation
+* lighter final cave backgrounds?
+* tas route
+* self destruct sequence
+* fancy stylegrounds
+* make sure that ultra ending sets permanent flag to change the note
+* map sw caves
+* what if the 100% ending just snakes all the way up to the original intro car room? that is like the last 4 rooms plus the whole escape sequence up and to the right. It would be a long and tedious climb. Maybe use a lot of dream blocks. Just like climb dream blocks in the void. Maybe like dream blocks and a strong up wind in the void. Maybe some feathers? Maybe variable speed dream blocks, lots of them fast but some slow.
+
+* final room wallbounce hint decal
+* dash block setup hint decal
+
+* maybe a simple bulging square decal to put behind floating water blocks
+* maybe a litte jellyfish resting platform decal or a line they hang down on
+
+* watchtower decals 
+* hydrant decal
+* cherry tree decal
+* lightbar background decal
+
+* cave explorer decal
+
+
+    if entity.ignoreConnection then
+    	return sprites, borders
+    end
+
+* music
+* sounds effects
+* sound placement
+* all lore
+* all room hints
+
+
+* make custom lock block entity
+    * background mirror sprite
+    * may need to add a custom MirrorSurface to get the reflection
+    * maybe it can detect and hide decals beneath it until it goes away and then make them visible again?
+    * audio timings:
+        1.216s/1.242s : first click - key turn start
+        1.723s : second click - door animation start
+        2.342s : third click - door burst start
+        2.633s : poof        
+
+        1.2s + 0.5 frames: animation start
+        Maybe add initial cracks to key sprite instead since the first click seems to align with the key "enter" animation starting
+
+
