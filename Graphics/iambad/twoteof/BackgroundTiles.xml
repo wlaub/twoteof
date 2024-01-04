@@ -162,6 +162,10 @@
   <Tileset id="y" copy="q" path="iambad/waldmo/tamewhite_bg" sound="43"/>
   <Tileset id="Y" copy="q" path="iambad/waldmo/tameyellow_bg" sound="43"/>
 
+  <Tileset id="g" copy="q" path="iambad/waldmo/vividwhite_bg" sound="43"/>
+
+
+
   <Tileset id="Z" copy="q" path="iambad/waldmo/solidblack" sound="43"/>
 
   <!-- DEFAULT TILES -->

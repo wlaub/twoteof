@@ -1,52 +1,6 @@
-decorated e-02b, e-02c, tweaked e-05, e-13b, e-15, e-17, e-08
-
-Lore:
-1/2     ? out-of-place
-1/2     ! mirror
-13/13   * normal
-4/5     ~ option of in the open
-        & advisory note
-
-22 total (required)
-~27 total (optional)
-
-*c-00
-*c-00
-?c-02
-&c-08 (i don't see how i can clear this gap)
-&d-04 (next time i'm taking the stairs)
-*e-xx
-*e-xx
-~e-02
-*e-03
-*e-03
-~e-06 (badeline)
-
-*c-13
-~c-11
-!c-15x
-*c-16
-
-~d-08 et al
-&d-08x
-
-*f-06
-*f-08
-*f-10
-*f-12
-*f-13
-
-*e-02b
-*e-02c
-&e-07
-&e-15 (even if i could make it,  i don't see how i could get back from the other side -> i don't see how i could get back from the other side)
-?e-09
-~*e-12
-!e-13-bx2
-*e-13
-**e-14
-
-*g-02
+* fixed a vividred mismatch in e-fill-2
+* added vividwhite bg tileset and used it in to b-00a
+* did some scrap decal decoration
 
 TODO:
 
