@@ -1,6 +1,5 @@
-* fixed a vividred mismatch in e-fill-2
-* added vividwhite bg tileset and used it in to b-00a
-* did some scrap decal decoration
+Added respawn change in f-13
+Added notes
 
 TODO:
 
@@ -15,6 +14,8 @@ TODO:
 * g-15 do something about the styleground
 
 * glue spinner shatter sprites
+* fix notes not hidden behind dash blocks
+* place dialog lore
 
 * final cave booster room cutscene
 * jitter spinners in final rooms

@@ -1,6 +1,3 @@
-	WED=	{# 96EFFF}{~}Wednesday{/~}{#}
-	WEDS=	{# 96EFFF}{~}Wednesdays{/~}{#}
-
 
 iambad_twoteof= The Wednesday On The Edge Of Forever
 iambad_twoteof_1_ch1= Wednesday
@@ -50,13 +47,36 @@ twoteof_owo=
 [MADELINE left peaceful]
 owo what's this?
 
+twoteof_owo_2=
+[MADELINE left together]
+when you fight with a {+iambad_WED}
+[MADELINE left togetherZoom]
+you have to think like a star
 
+twoteof_where_secret=
+[MADELINE left peaceful]
+Where secret?
 
 # Dialog
 
 twoteof_car=
 [MADELINE left normal]
 Shade!
+
+# Interference
+
+twoteof_int_1=
+[]
+...where there is only meat...
+
+twoteof_int_2=
+[]
+everyone is the same on in the outsides....
+
+twoteof_int_2=
+[]
+but bizarre on the insides!
+
 
 # Musings
 
