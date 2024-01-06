@@ -1,7 +1,11 @@
-Added respawn change in f-13
-Added notes
+Added a bunch of dialog
+fixed a misplaced spinner in d-08
+
 
 TODO:
+
+* I think I need another custom dash block with adjustable depth
+    unless xaphan helper takes pr's
 
 * trigger/entity to activate extra sounds mode
     * sets save data enable, adds hooks
@@ -15,7 +19,6 @@ TODO:
 
 * glue spinner shatter sprites
 * fix notes not hidden behind dash blocks
-* place dialog lore
 
 * final cave booster room cutscene
 * jitter spinners in final rooms

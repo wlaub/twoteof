@@ -42,7 +42,6 @@ twoteof_tas=
 [MADELINE left normal]
 woah, am i ~tasbot~?
 
-
 twoteof_owo=
 [MADELINE left peaceful]
 owo what's this?
@@ -63,19 +62,60 @@ twoteof_car=
 [MADELINE left normal]
 Shade!
 
+twoteof_badeline_1=
+[MADELINE right normal]
+Have you ever wondered why your eyes feel empty?
+
+twoteof_badeline_2=
+[MADELINE right normal]
+Have you ever felt that most people have nothing to say besides repeated chains of empty signifiers, full of sound, but devoid of meaning?
+
+twoteof_badeline_3=
+[MADELINE right normal]
+Have you caught yourself repeating the same conventional nonsense? 
+
+Can you stop yourself from weaving causal narratives of dubious veracity?
+
+twoteof_badeline_4=
+[MADELINE right normal]
+Your experience of reality is a collection of approximations and heuristics, none of them valid as predictors. It is not the real thing. You will never perceive reality.
+
+twoteof_badeline_5=
+[MADELINE right normal]
+People are just conceptual forms imposed on impressions of reality in an effort to explain experiences.
+
+twoteof_badeline_6=
+[MADELINE left normal]
+Why are you here?
+
+[MADELINE right normal]
+I am here because
+
+# Extras
+
+twoteof_vp=
+There's a Victory Point (VP) on the ground here.
+
+    +1 VP!
+
 # Interference
 
 twoteof_int_1=
-[]
+[NOISE right normal]
 ...where there is only meat...
 
 twoteof_int_2=
-[]
+[NOISE right normal]
 everyone is the same on in the outsides....
 
-twoteof_int_2=
-[]
+twoteof_int_3=
+[NOISE right normal]
 but bizarre on the insides!
+
+twoteof_int_4=
+[NOISE right normal]
+...bounded my mutually exclusive...
+
 
 
 # Musings
