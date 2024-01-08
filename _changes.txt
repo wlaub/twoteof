@@ -1,11 +1,14 @@
-Added a bunch of dialog
-fixed a misplaced spinner in d-08
+Added lightning to d-03b plus a nice icewall to help with timing and feel. 
+Added lightning to d-04b
 
 
 TODO:
 
-* I think I need another custom dash block with adjustable depth
+* make lookouts etc
+* Finish hiding notes
+    * I think I need another custom dash block with adjustable depth
     unless xaphan helper takes pr's
+* mess around with stylegrounds
 
 * trigger/entity to activate extra sounds mode
     * sets save data enable, adds hooks
@@ -18,11 +21,10 @@ TODO:
 * g-15 do something about the styleground
 
 * glue spinner shatter sprites
-* fix notes not hidden behind dash blocks
+* and place reamining glue spinnersi
 
 * final cave booster room cutscene
 * jitter spinners in final rooms
-* monolith badeline conversation
 * lighter final cave backgrounds?
 * tas route
 * self destruct sequence
@@ -68,5 +70,66 @@ TODO:
 
         1.2s + 0.5 frames: animation start
         Maybe add initial cracks to key sprite instead since the first click seems to align with the key "enter" animation starting
+
+
+Influences:
+
+* Descent
+blue, yellow, and red area/keys
+red zone decals
+forcefields and the switch that disables them (and a wall) when you destroy it
+badeline boss qua reactor, and the self-destruct sequence that follows
+
+* Myst
+blue, red, and white paper
+
+* Chrono trigger
+a black wind stirs
+you jumped off this mortal coil
+
+* Mondo Medicals
+when you fight with a wednesday
+you have to think like a star
+
+everyone is the same on the insides
+but bizarre on the outsides
+
+* BEACON
+A distant light | salvation?
+
+* Immortal defense, runman: race around the world
+song
+
+* Cave story
+you were never seen again
+final cave
+
+* OoT, metroid, et al
+area intro cutscenes
+
+* An Untitled Story
+ending zone color scheme
+fun fact about crts
+
+* Flavors of pi
+final cave mapping, how to intermediate tech spam
+
+* star trek and the original series
+guardian of forever, mod titles
+
+* the northern caves
+the southwestern caves
+
+* polybius
+everything is fine
+
+* braid, [journalist name]
+time stood still
+
+* do i even have to say it?
+i told you dog, numbers
+
+* tamer the friendly spambot
+how care aout the graphic
 
 

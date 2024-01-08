@@ -116,6 +116,28 @@ twoteof_int_4=
 [NOISE right normal]
 ...bounded my mutually exclusive...
 
+twoteof_int_5=
+[NOISE right normal]
+how care aout the graphic
+
+twoteof_int_6=
+[NOISE right normal]
+...doesn't mean impossible
+
+twoteof_int_7=
+[NOISE right normal]
+it has to happen to...
+
+twoteof_int_8=
+[NOISE right normal]
+... as well be you.
+
+
+
+
+
+
+
 
 
 # Musings
