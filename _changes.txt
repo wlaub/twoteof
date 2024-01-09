@@ -1,13 +1,19 @@
-Added lightning to d-03b plus a nice icewall to help with timing and feel. 
-Added lightning to d-04b
-
+Applied fake wall dash blocks.
+Add invisible tileset for ending
+Add loopback ending
+Better red spinner routing in d-00
+Added g-17 and g-18
+Added 100% 'ending'
+Added intermediate 'ending'
+fixed up g-15 through g-18 stylegrounds
 
 TODO:
 
+* make checkpoint at start of main map
+* implement checkpoints and images
+* ending screen
+
 * make lookouts etc
-* Finish hiding notes
-    * I think I need another custom dash block with adjustable depth
-    unless xaphan helper takes pr's
 * mess around with stylegrounds
 
 * trigger/entity to activate extra sounds mode
@@ -17,8 +23,6 @@ TODO:
     * mouth pop on doublejump super
     * click on doublejump
 
-* invisible tileset for ending
-* g-15 do something about the styleground
 
 * glue spinner shatter sprites
 * and place reamining glue spinnersi
@@ -31,7 +35,6 @@ TODO:
 * fancy stylegrounds
 * make sure that ultra ending sets permanent flag to change the note
 * map sw caves
-* what if the 100% ending just snakes all the way up to the original intro car room? that is like the last 4 rooms plus the whole escape sequence up and to the right. It would be a long and tedious climb. Maybe use a lot of dream blocks. Just like climb dream blocks in the void. Maybe like dream blocks and a strong up wind in the void. Maybe some feathers? Maybe variable speed dream blocks, lots of them fast but some slow.
 
 * final room wallbounce hint decal
 * dash block setup hint decal

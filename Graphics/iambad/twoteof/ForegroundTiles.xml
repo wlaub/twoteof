@@ -182,6 +182,10 @@
 
   </Tileset>
 
+  <Tileset id="B" copy="q" path="iambad/waldmo/invisible" sound="43"/>
+
+
+
 
 
   <!--

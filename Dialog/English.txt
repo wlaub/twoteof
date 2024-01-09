@@ -3,7 +3,7 @@ iambad_twoteof= The Wednesday On The Edge Of Forever
 iambad_twoteof_1_ch1= Wednesday
 iambad_twoteof_1_ch1_c_01= Wednesday
 iambad_twoteof_1_ch1_f_02= End of Day
-poem_iambad_twoteof_1_ch1_A= Wednesday
+poem_iambad_twoteof_1_ch1_A= Adrift in the Time Ocean
 
 iambad_WEDNESDAY_COMPLETE= Wednesday Complete
 
