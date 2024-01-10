@@ -1,14 +1,12 @@
-Applied fake wall dash blocks.
-Add invisible tileset for ending
-Add loopback ending
-Better red spinner routing in d-00
-Added g-17 and g-18
-Added 100% 'ending'
-Added intermediate 'ending'
-fixed up g-15 through g-18 stylegrounds
+Altered final birdpath in g-13
+Added h-00 through h-104
 
 TODO:
 
+* sw cave fillers
+* sw cave warning note
+
+* make custom title card stuff
 * make checkpoint at start of main map
 * implement checkpoints and images
 * ending screen
@@ -16,20 +14,13 @@ TODO:
 * make lookouts etc
 * mess around with stylegrounds
 
-* trigger/entity to activate extra sounds mode
-    * sets save data enable, adds hooks
-    * similar to self destruct but simpler
-    * map sounds to various actions
-    * mouth pop on doublejump super
-    * click on doublejump
-
-
 * glue spinner shatter sprites
 * and place reamining glue spinnersi
 
 * final cave booster room cutscene
 * jitter spinners in final rooms
-* lighter final cave backgrounds?
+* try to get a better yellow tileset
+* try to make a darker vivid black?
 * tas route
 * self destruct sequence
 * fancy stylegrounds
@@ -48,6 +39,15 @@ TODO:
 * lightbar background decal
 
 * cave explorer decal
+
+* trigger/entity to activate extra sounds mode
+    * sets save data enable, adds hooks
+    * similar to self destruct but simpler
+    * map sounds to various actions
+    * mouth pop on doublejump super
+    * click on doublejump
+
+
 
 
     if entity.ignoreConnection then

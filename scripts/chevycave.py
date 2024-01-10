@@ -141,7 +141,8 @@ class Cave():
         w+= 1
         h += 1
 
-        tile = 'U'
+#        tile = 'U'
+        tile = 'x'
 
         lines = [[tile]*w for _ in range(h)]
         for x,y in self.cells:
@@ -283,13 +284,20 @@ class Button():
         return True
 
 def get_next_file():
-    return 'last_room.cave'
-    files = glob.glob('*.cave')
+    prefix = 'sw_'
+    files = glob.glob(f'{prefix}*.cave')
     if len(files) == 0:
-        return '0.cave'
+        return f'{prefix}0.cave'
 
-    idx = max((int(x.split('.')[0]) for x in files))+1
-    return f'{idx}.cave'
+    idx = 1
+    for x in files:
+        try:
+            fidx = int(x.replace(prefix,'').split('.')[0])
+            if fidx >= idx:
+                idx = fidx+1
+        except: pass
+
+    return f'{prefix}{idx}.cave'
 
 
 bounds = [0, 80, 0, 80]
