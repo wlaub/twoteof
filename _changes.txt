@@ -1,10 +1,6 @@
-Altered final birdpath in g-13
-Added h-00 through h-104
+Added sw cave warning note, fillers, intro cutscene, backgrounds
 
 TODO:
-
-* sw cave fillers
-* sw cave warning note
 
 * make custom title card stuff
 * make checkpoint at start of main map
@@ -15,7 +11,7 @@ TODO:
 * mess around with stylegrounds
 
 * glue spinner shatter sprites
-* and place reamining glue spinnersi
+* and place reamining glue spinners
 
 * final cave booster room cutscene
 * jitter spinners in final rooms
@@ -25,7 +21,6 @@ TODO:
 * self destruct sequence
 * fancy stylegrounds
 * make sure that ultra ending sets permanent flag to change the note
-* map sw caves
 
 * final room wallbounce hint decal
 * dash block setup hint decal
