@@ -1,11 +1,21 @@
-Added sw cave warning note, fillers, intro cutscene, backgrounds
+fixed a cloud in c-00 to be a little more consistent with reality
+removed c-07 lookout
+added c-01d lookout
+added ambient rain
+removed some todos
 
 TODO:
 
-* make custom title card stuff
-* make checkpoint at start of main map
-* implement checkpoints and images
-* ending screen
+Corvus fallax 7x6
+cumulus saltus 11x18
+To Monolith 8x7
+
+where room
+* d-06 missing room suprised dialog "WHAT???"
+
+f-05 death warp
+* what is wrong with me?
+* maybe just go to the not canon room
 
 * make lookouts etc
 * mess around with stylegrounds
@@ -34,6 +44,11 @@ TODO:
 * lightbar background decal
 
 * cave explorer decal
+
+* make custom title card stuff
+* make checkpoint at start of main map
+* implement checkpoints and images
+* ending screen
 
 * trigger/entity to activate extra sounds mode
     * sets save data enable, adds hooks
@@ -130,4 +145,48 @@ i told you dog, numbers
 * tamer the friendly spambot
 how care aout the graphic
 
+
+Development Notes
+
+Some of the scripts used in the development of this map are available in the github repo at https://github.com/wlaub/twoteof under the scripts directory. This includes lonn scripts written in lua, various utility scripts written in python, and some relevant input and output data.
+
+I also used the game state recording mod at https://github.com/wlaub/tuw along with supporting python scripts to render and process gameplay paths while designing rooms. Later I found out about Aurora's Lonn Plugin (https://gamebanana.com/tools/12572), which is much more convenient and useful for player route visualization.
+
+Cavegen
+
+Sky Cave and The Southwestern Caves
+
+The tiles in Sky Cave and The Southerwestern Caves were generated using a variation on an algorithm described by chevyray on tigsource in 2009 (https://forums.tigsource.com/index.php?topic=5174.0, https://web.archive.org/web/20090705003938/http://properundead.com/2009/03/cave-generator.html). It's a fast algorithm that generates aesthetically pleasing structures that are readily recognizable as representative of caves, but it also doesn't give a lot of control over the resulting structures.
+
+The variation of the chevyray algorithm used in this map allows for some biasing of expansion probability based on direction and perhaps some other minor tweaks I forgot about. Source is available in the repo under scripts/chevycave.py.
+
+The algorithm is fast enough that it's feasible to generate a large number of caves in order to select a small number of unlikely results containing a limited set of specific characteristics. For the purposes of this map, results were selected to join together smoothly and follow and overall left-moving path with some allowances for room-to-room directional variation. There was also a minor preference for more aesthetically pleasing results. Background tiles were added by hand according to vibes.
+
+In the case of Sky Cave, hazards were added by hand semi-algorithmically to produce a particular aesthetic and impose some intentionality on the gameplay. Spinners were added to non-functional comf in order to spare the player the need to check every nook and cranny for secrets.
+
+The Southwestern Caves are not meant to be explored, and so do nopt contain any additional gameplay elements beyond what the scripts generated. The foregrounds were generated in roughly the same way as Sky Cave, but were not as carefully curated. The backgrounds were hastily scribbled by hand. 
+
+Final Cave
+
+One of the most obvious ways of creating a cave generator is to just simulate the way caves form in nature - by gradually removing material from a substrate. There are lots of easy and simple ways of applying the concept to 2-dimensional cave generation. One option is to create a landscape with some randomly varying density, select a starting point, and then repeatedly roll to remove adjacent coordinates based on their density. You could also just reduce their density by random amounts (or even fixed amounts) on each timestep and then just remove any point that falls below 0 density.
+
+An even simpler approach is to start with some set of initially open points, and randomly remove adjacent non-empty points for many timesteps. This causes the shape of the initial set of points (for example a rasterized set of thin lines and curves, perhaps the set of tiles occupied by a player in the course of traversing a room) to expand outward and form rough boundaries around a smooth shape vaguely like a cave. This is a vastly simpler model than actual cave formation and so doesn't really resemble a cave except abstractly as we recognize it's supposed to look like some natural enclosed structure. It is readily apparent that the simple synthetic cave is symbolic of a cave, though it may not be aesthetically satisfying.
+
+The chevyray cavegen algorithm is fast and generates more satisfying caves than the simple erosion algorithm, but it can't be directed. The caves it generates follow random paths and so the qualities of the algorithm over-specify the gameplay. There is very little room for intentionality. You can curate these caves, but really evaluating the gameplay potential of a random room takes more time and effort than is reasonable given the low likelihood that the chevyray algorithm has of producing specific features.
+
+The erosion model is extremely easy to implement, but it's also very slow and doesn't produce interesting features. If, instead of making erosion decisions at random, you instead made decisions by considering the surrounding geometry, then maybe you could guide the erosion process to produce some characteristic non-uniform features. For example, you might start by considering a rectangular grid around a point, multiply the on/off values (e.g. 0,1 or -1,1) of those points by a matching grid of weights, and sum the results to compute a probability of expanding. You may notice that this sort of thing is kind of like a very simple neural network, and so it stands to reason that you might be able to train a neural network to make erosion decisions and hope that it can make even better decisions.
+
+The 15 rooms of Sky Cave, generated by the chevyray algorithm with light curation for shape and connectivity, were used to produce a training set where a network was asked to predict the on/off state of tiles given the states of surrounding tiles for every interior tile in the Sky Cave rooms. The trained model is then used to determine the probability of expansion of every tile adjacent to an open tile in an initial set constructed from gameplay recordings of the rooms in Final Cave. There was also metadata describing additional regions of tiles that must be open (e.g. room transitions) and must be solid (e.g. surfaces you touch).
+
+A simple UI allows the erosion process to be run in real time (each step typically takes a perceptible duration), paused, and reversed. It usually takes around 500 steps for a room to get wide enough for the player to comfortably pass, but it's useful to be able to overshoot, backtrack, and try again from an earlier state to sort of tune features. To generate the background, you can just back up a few hundred steps and run again for fewer steps so that you get something similar to, but not concentric to, the boundary of the foreground. You might also fill in some regions where you want to direct the player's attention or indicate a rough positioning so that the background has bridges and lumps that can make it look nicer and communicate routing.
+
+It's not immediately clear that the neural network does anything. Several training attempts yielded networks that would just always expand in one or more directions, and I think there are several problems with the model and the way it's used. I've tried comparing the model to random chance on the same initial conditions, and it seems kind of like the model is better at preserving long thin branching shapes than random chance, but it's subtle, and uniform random chance gives more heterogeneous results than I would expect.
+
+The end result looks good enough to me, though.
+
+I had somewhat more success training a model to predict a single point's value given surrounding points (the original erosion model tries to predict the 4 points around a point for historical reasons), though it's still often wrong about boundary points, which is kind of where it needs to be right. I haven't tried running an erosion model with it. I need to be done with this map, and what I've got gets the job done. It might also be interesting to allow points to un-erode. Basically just have the model predict the state of every boundary point over and over again and hope that it expands into something like the training sets. It might be the case that since it is relatively good at predicting interior and exterior points, that once it starts getting into a vaguely correct shape, the boundary will sort of stabilize in that it will stop expanding or contracting while the exact details shift continuously. In that case, it might still produce some key characteristics of the training set as long as exact boundary shape isn't critical.
+
+Also the training set was randomly generated. There may have been no clear patterns for it to glean, at least in the 15-room training set. It is sort of unreasonable to expect it to work very well at all. I can tell that the chevyray caves have characteristic features, but it's not easy to describe them from what I've seen, and I'm not even really qualified to tell whether a cave is plausibly from chevyray cavegen. I don't have a good way to judge whether it's working, and there's no reason the forward-only random erosion model should be good at producing specific shapes.
+
+The quest for the perfect cavegen algorithm is as endless as it is pointless, but it's fun to try. The struggle itself etc. I am an absurd hero now.
 
