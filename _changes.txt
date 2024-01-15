@@ -1,21 +1,13 @@
-fixed a cloud in c-00 to be a little more consistent with reality
-removed c-07 lookout
-added c-01d lookout
-added ambient rain
-removed some todos
+Finalized bad end
+Added d-06 minitextbox
+Added f-05 secret
+Finalized hard ending
 
 TODO:
 
 Corvus fallax 7x6
 cumulus saltus 11x18
 To Monolith 8x7
-
-where room
-* d-06 missing room suprised dialog "WHAT???"
-
-f-05 death warp
-* what is wrong with me?
-* maybe just go to the not canon room
 
 * make lookouts etc
 * mess around with stylegrounds
@@ -30,7 +22,6 @@ f-05 death warp
 * tas route
 * self destruct sequence
 * fancy stylegrounds
-* make sure that ultra ending sets permanent flag to change the note
 
 * final room wallbounce hint decal
 * dash block setup hint decal

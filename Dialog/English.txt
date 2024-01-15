@@ -56,6 +56,10 @@ twoteof_where_secret=
 [MADELINE left peaceful]
 Where secret?
 
+twoteof_what=
+[MADELINE left surprised]
+WHAT?
+
 # Dialog
 
 twoteof_car=
