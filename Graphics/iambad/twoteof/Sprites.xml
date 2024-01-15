@@ -704,43 +704,43 @@
     <Justify x=".5" y="1" />
     
     <Loop id="idle" path="lookout" delay="0.1" frames="0"/>
-    <Anim id="lookRight" path="lookout" delay="0.08" frames="1" goto="looking"/>
-    <Anim id="lookLeft" path="lookout" delay="0.08" frames="1" goto="looking"/>
-    <Loop id="looking" path="lookout" delay="0.08" frames="1"/>
-    <Loop id="lookingUp" path="lookout" frames="1"/>
-    <Loop id="lookingUpRight" path="lookout" frames="1"/>
-    <Loop id="lookingRight" path="lookout" frames="1"/>
-    <Loop id="lookingDownRight" path="lookout" frames="1"/>
-    <Loop id="lookingDown" path="lookout" frames="1"/>
-    <Loop id="lookingDownLeft" path="lookout" frames="1"/>
-    <Loop id="lookingLeft" path="lookout" frames="1"/>
-    <Loop id="lookingUpLeft" path="lookout" frames="1"/>
+    <Anim id="lookRight" path="lookout" delay="0.08" frames="0" goto="looking"/>
+    <Anim id="lookLeft" path="lookout" delay="0.08" frames="0" goto="looking"/>
+    <Loop id="looking" path="lookout" delay="0.08" frames="0"/>
+    <Loop id="lookingUp" path="lookout" frames="0"/>
+    <Loop id="lookingUpRight" path="lookout" frames="0"/>
+    <Loop id="lookingRight" path="lookout" frames="0"/>
+    <Loop id="lookingDownRight" path="lookout" frames="0"/>
+    <Loop id="lookingDown" path="lookout" frames="0"/>
+    <Loop id="lookingDownLeft" path="lookout" frames="0"/>
+    <Loop id="lookingLeft" path="lookout" frames="0"/>
+    <Loop id="lookingUpLeft" path="lookout" frames="0"/>
 
-    <Loop id="badeline_idle" path="badeline" delay="0.1" frames="1"/>
-    <Anim id="badeline_lookRight" path="badeline" delay="0.08" frames="1" goto="badeline_looking"/>
-    <Anim id="badeline_lookLeft" path="badeline" delay="0.08" frames="1" goto="badeline_looking"/>
-    <Loop id="badeline_looking" path="badeline" delay="0.08" frames="1"/>
-    <Loop id="badeline_lookingUp" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingUpRight" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingRight" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingDownRight" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingDown" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingDownLeft" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingLeft" path="badeline" frames="1"/>
-    <Loop id="badeline_lookingUpLeft" path="badeline" frames="1"/>
+    <Loop id="badeline_idle" path="badeline" delay="0.1" frames="0"/>
+    <Anim id="badeline_lookRight" path="badeline" delay="0.08" frames="0" goto="badeline_looking"/>
+    <Anim id="badeline_lookLeft" path="badeline" delay="0.08" frames="0" goto="badeline_looking"/>
+    <Loop id="badeline_looking" path="badeline" delay="0.08" frames="0"/>
+    <Loop id="badeline_lookingUp" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingUpRight" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingRight" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingDownRight" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingDown" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingDownLeft" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingLeft" path="badeline" frames="0"/>
+    <Loop id="badeline_lookingUpLeft" path="badeline" frames="0"/>
 
     <Loop id="nobackpack_idle" path="nobackpack" delay="0.1" frames="0"/>
-    <Anim id="nobackpack_lookRight" path="nobackpack" delay="0.08" frames="1"/>
-    <Anim id="nobackpack_lookLeft" path="nobackpack" delay="0.08" frames="1"/>
-    <Loop id="nobackpack_looking" path="nobackpack" delay="0.08" frames="1"/>
-    <Loop id="nobackpack_lookingUp" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingUpRight" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingRight" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingDownRight" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingDown" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingDownLeft" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingLeft" path="nobackpack" frames="1"/>
-    <Loop id="nobackpack_lookingUpLeft" path="nobackpack" frames="1"/>
+    <Anim id="nobackpack_lookRight" path="nobackpack" delay="0.08" frames="0"/>
+    <Anim id="nobackpack_lookLeft" path="nobackpack" delay="0.08" frames="0"/>
+    <Loop id="nobackpack_looking" path="nobackpack" delay="0.08" frames="0"/>
+    <Loop id="nobackpack_lookingUp" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingUpRight" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingRight" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingDownRight" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingDown" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingDownLeft" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingLeft" path="nobackpack" frames="0"/>
+    <Loop id="nobackpack_lookingUpLeft" path="nobackpack" frames="0"/>
   </lookout>
 
   <flutterBird path="scenery/flutterbird/" start="idle">

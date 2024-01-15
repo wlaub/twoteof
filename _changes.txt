@@ -1,27 +1,21 @@
-Finalized bad end
-Added d-06 minitextbox
-Added f-05 secret
-Finalized hard ending
+Added streamslip lookout decals
+Removed c-10 backtrack lookout
+Added fg stylegrounds for streamslip, thunderhead, monolith, sky cave, final cave, sw caves,
+Added background to g-08 to mask styleground transition
+Added self-destruct styleground
 
 TODO:
 
-Corvus fallax 7x6
-cumulus saltus 11x18
-To Monolith 8x7
-
 * make lookouts etc
-* mess around with stylegrounds
 
 * glue spinner shatter sprites
 * and place reamining glue spinners
 
-* final cave booster room cutscene
 * jitter spinners in final rooms
 * try to get a better yellow tileset
 * try to make a darker vivid black?
 * tas route
 * self destruct sequence
-* fancy stylegrounds
 
 * final room wallbounce hint decal
 * dash block setup hint decal
@@ -49,17 +43,10 @@ To Monolith 8x7
     * click on doublejump
 
 
-
-
-    if entity.ignoreConnection then
-    	return sprites, borders
-    end
-
 * music
 * sounds effects
 * sound placement
-* all lore
-* all room hints
+
 
 
 * make custom lock block entity
