@@ -1,12 +1,12 @@
-Added streamslip lookout decals
-Removed c-10 backtrack lookout
-Added fg stylegrounds for streamslip, thunderhead, monolith, sky cave, final cave, sw caves,
-Added background to g-08 to mask styleground transition
-Added self-destruct styleground
+cave explorer decal, floating water decals, dead cherry tree, wallbounce hint, hydrants
 
 TODO:
 
 * make lookouts etc
+
+* lightbar background decal
+* dash block setup hint decal
+* maybe a litte jellyfish resting platform decal or a line they hang down on
 
 * glue spinner shatter sprites
 * and place reamining glue spinners
@@ -16,19 +16,6 @@ TODO:
 * try to make a darker vivid black?
 * tas route
 * self destruct sequence
-
-* final room wallbounce hint decal
-* dash block setup hint decal
-
-* maybe a simple bulging square decal to put behind floating water blocks
-* maybe a litte jellyfish resting platform decal or a line they hang down on
-
-* watchtower decals 
-* hydrant decal
-* cherry tree decal
-* lightbar background decal
-
-* cave explorer decal
 
 * make custom title card stuff
 * make checkpoint at start of main map
