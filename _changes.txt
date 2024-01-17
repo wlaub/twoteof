@@ -1,12 +1,13 @@
-cave explorer decal, floating water decals, dead cherry tree, wallbounce hint, hydrants
+Added and placed skyhook/jelly bubble decals
+Added and placed monolith cameras and monitors
+Added lightbar, dash block setup hint
 
 TODO:
 
 * make lookouts etc
-
-* lightbar background decal
-* dash block setup hint decal
-* maybe a litte jellyfish resting platform decal or a line they hang down on
+  * d-03 (sketch of elevator)
+  * d-08 (sketch of labyrinth)
+130x104 -> /6 -> ~22x18
 
 * glue spinner shatter sprites
 * and place reamining glue spinners
@@ -34,20 +35,6 @@ TODO:
 * sounds effects
 * sound placement
 
-
-
-* make custom lock block entity
-    * background mirror sprite
-    * may need to add a custom MirrorSurface to get the reflection
-    * maybe it can detect and hide decals beneath it until it goes away and then make them visible again?
-    * audio timings:
-        1.216s/1.242s : first click - key turn start
-        1.723s : second click - door animation start
-        2.342s : third click - door burst start
-        2.633s : poof        
-
-        1.2s + 0.5 frames: animation start
-        Maybe add initial cracks to key sprite instead since the first click seems to align with the key "enter" animation starting
 
 
 Influences:
@@ -104,11 +91,28 @@ everything is fine
 * braid, [journalist name]
 time stood still
 
+* mondo medicals (cactus)
+when you fight with a wednesday
+you have to think like a star
+
+everyone is the same on in the outsides
+but bizarre on the insides
+
 * do i even have to say it?
 i told you dog, numbers
 
 * tamer the friendly spambot
 how care aout the graphic
+
+* you have to complete the square (secondlawgames)
+a 3-room pygame joke platformer drawn on graph paper. had secrets, a stupid math joke, and referenced current events in video games. spritual predecessor to this map.
+
+* mostly walking,sean plott
+absurdist mantra this is the game
+platformer pacing concepts that i was aware of and sometimes applied when i felt that a segment of gameplay should be less strenuous.
+
+* celeste's biggest mod (patricia taxxon)
+discussion of forms of difficulty and hazard usage that i did not necessarily apply but was aware of, because i also sometimes enjoy functionally scripted techspam gameplay where the hazards are just decoration.
 
 
 Development Notes
