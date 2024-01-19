@@ -1,7 +1,3 @@
-make reactor badeline boss knock the player toward the exit plz. added d-03 and d-08 hints
-added consequences for killing jelly
-finished glue spinners
-
 
 TODO:
 
@@ -15,6 +11,19 @@ TODO:
 * make checkpoint at start of main map
 * implement checkpoints and images
 * ending screen
+
+* custom sound trigger
+  * once per map (flag eow_{eid}_disable)
+  * once per room
+  * music or sound volume
+  * don't interrupt? (doesn't play if static playing flag)
+  * always interrupt? (doesn't set playing flag)
+  * can't interrupt? (sets no interrupt flag)
+  * else: set playing flag on start, don't start if interrupt flag
+
+* sequence trigger
+  * on enter: if activated, activate triggers at nodes
+  * activated by other sequence trigger
 
 * trigger/entity to activate extra sounds mode
     * sets save data enable, adds hooks
@@ -31,6 +40,7 @@ TODO:
     the rot: the old mind in the desert?
 * sounds effects
 * sound placement
+  * trigger sounds on contact with ground or entities
 
 
 It has been Wednesday for nearly four years now. Would you like to know why?
