@@ -1,11 +1,12 @@
 
 TODO:
 
-* jitter spinners in final rooms
 * try to get a better yellow tileset
 * try to make a darker vivid black?
 * tas route
 * self destruct sequence
+
+* special sound effect when you kill a jelly
 
 * make custom title card stuff
 * make checkpoint at start of main map
