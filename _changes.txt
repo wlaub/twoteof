@@ -1,16 +1,9 @@
-Added and placed skyhook/jelly bubble decals
-Added and placed monolith cameras and monitors
-Added lightbar, dash block setup hint
+make reactor badeline boss knock the player toward the exit plz. added d-03 and d-08 hints
+added consequences for killing jelly
+finished glue spinners
+
 
 TODO:
-
-* make lookouts etc
-  * d-03 (sketch of elevator)
-  * d-08 (sketch of labyrinth)
-130x104 -> /6 -> ~22x18
-
-* glue spinner shatter sprites
-* and place reamining glue spinners
 
 * jitter spinners in final rooms
 * try to get a better yellow tileset
@@ -32,10 +25,32 @@ TODO:
 
 
 * music
+    twm: song of the wanderer (helen humes, neil moret)
+    streamfall: spleen
+    stratopause: vortex flow of strength k
+    the rot: the old mind in the desert?
 * sounds effects
 * sound placement
 
 
+It has been Wednesday for nearly four years now. Would you like to know why?
+
+Map includes the following
+* up to 110-ish rooms
+* 20 wednesday berries
+* 6? birds
+* <> acheviements
+* -2 3 4 9 3- multiple -endings- end states
+* 3 or more caves
+* 1 jellyfish (don't let anything happen to it)
+* 1 mandatory heart
+* 1 optional heart
+* 1 car
+* beginner and intermediate routes
+* some original audio
+* some original assets
+* some original code
+* various small secrets
 
 Influences:
 
@@ -117,6 +132,12 @@ discussion of forms of difficulty and hazard usage that i did not necessarily ap
 
 Development Notes
 
+[I am tired.]
+
+No more. I'm done. All that's left is to go home, get my money, and sleep for the next two years.
+
+Software
+
 Some of the scripts used in the development of this map are available in the github repo at https://github.com/wlaub/twoteof under the scripts directory. This includes lonn scripts written in lua, various utility scripts written in python, and some relevant input and output data.
 
 I also used the game state recording mod at https://github.com/wlaub/tuw along with supporting python scripts to render and process gameplay paths while designing rooms. Later I found out about Aurora's Lonn Plugin (https://gamebanana.com/tools/12572), which is much more convenient and useful for player route visualization.
@@ -159,3 +180,35 @@ Also the training set was randomly generated. There may have been no clear patte
 
 The quest for the perfect cavegen algorithm is as endless as it is pointless, but it's fun to try. The struggle itself etc. I am an absurd hero now.
 
+
+Software Used
+
+wine
+Celeste
+Lonn
+Celeste Studio
+Olympus
+FMOD Studio
+Audacity
+GIMP
+Firefox
+Chrome
+Vim
+Python 3
+tmux
+git-bash
+git
+gnome-terminal
+notepad
+windows explorer
+7-zip
+Nautilus
+Microsoft Windows
+Ubuntu Linux
+xmonad
+KiCAD 5
+Arduino IDE
+SSH
+dotnet
+ps, kill, pgrep, pkill
+grep
