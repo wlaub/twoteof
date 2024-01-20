@@ -1,12 +1,13 @@
+switch to new vivid black
+toned down green styleground
+fixed a bird
 
 TODO:
 
-* try to get a better yellow tileset
-* try to make a darker vivid black?
 * tas route
 * self destruct sequence
 
-* special sound effect when you kill a jelly
+* special sound effect when you kill a jellyfish
 
 * make custom title card stuff
 * make checkpoint at start of main map
@@ -49,7 +50,7 @@ It has been Wednesday for nearly four years now. Would you like to know why?
 Map includes the following
 * up to 110-ish rooms
 * 20 wednesday berries
-* 6? birds
+* -6 1 2- 7? birds
 * <> acheviements
 * -2 3 4 9 3- multiple -endings- end states
 * 3 or more caves

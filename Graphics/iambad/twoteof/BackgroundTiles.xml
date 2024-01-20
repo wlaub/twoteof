@@ -150,7 +150,7 @@
 
   <Tileset id="u" copy="q" path="iambad/waldmo/darkblack_bg" sound="43"/>
   <Tileset id="U" copy="q" path="iambad/waldmo/brightblack_bg" sound="43"/>
-  <Tileset id="v" copy="q" path="iambad/waldmo/vividblack2_bg" sound="43"/>
+  <Tileset id="v" copy="q" path="iambad/waldmo/vividblack3_bg" sound="43"/>
 
   <Tileset id="V" copy="q" path="iambad/waldmo/darkwhite_bg" sound="43"/>
   <Tileset id="w" copy="q" path="iambad/waldmo/brightwhite_bg" sound="43"/>
