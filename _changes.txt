@@ -1,18 +1,36 @@
-switch to new vivid black
-toned down green styleground
-fixed a bird
+add checkpoint
+set up dc achievement flag
+set up c-10 achievement flag
+set up lightning room achievement flag
+fixed a bug in black wind
+set up fish achievement flag
+added checkpoint images
+added another ending
+set up flag for hero achievement?
+did custom title card stuff
+did end screen
 
 TODO:
 
+* see if you can trackending state to teleport to location on starting map
+  *a: very conditionally, doesn't work with certain intros
+
 * tas route
-* self destruct sequence
 
-* special sound effect when you kill a jellyfish
-
-* make custom title card stuff
-* make checkpoint at start of main map
-* implement checkpoints and images
-* ending screen
+* achievements
+ * lightning room special
+    * d-04b_done
+ * no jelly room
+    * c_10_no_jelly
+ * downclimb streamfall
+    * streamfall_downclimb_complete
+ * blue key without dash refill
+ * get to the back of the 2dash room without getting 2dash
+    * reach streamfall without getting any keys
+ * put fish back in water
+    * fish_done
+ * escape the self-destruct a different way
+    * hero_actievement
 
 * custom sound trigger
   * once per map (flag eow_{eid}_disable)
@@ -23,17 +41,12 @@ TODO:
   * can't interrupt? (sets no interrupt flag)
   * else: set playing flag on start, don't start if interrupt flag
 
-* sequence trigger
-  * on enter: if activated, activate triggers at nodes
-  * activated by other sequence trigger
-
 * trigger/entity to activate extra sounds mode
     * sets save data enable, adds hooks
     * similar to self destruct but simpler
     * map sounds to various actions
     * mouth pop on doublejump super
     * click on doublejump
-
 
 * music
     twm: song of the wanderer (helen humes, neil moret)
@@ -42,8 +55,11 @@ TODO:
     the rot: the old mind in the desert?
 * sounds effects
 * sound placement
+  * self destruct sequence
+  * special sound effect when you kill a jellyfish
+  * special sound when you dunk a fish
+  * special sound when you trigger spikes in the lightning room
   * trigger sounds on contact with ground or entities
-
 
 It has been Wednesday for nearly four years now. Would you like to know why?
 
@@ -51,7 +67,7 @@ Map includes the following
 * up to 110-ish rooms
 * 20 wednesday berries
 * -6 1 2- 7? birds
-* <> acheviements
+* 7 acheviements
 * -2 3 4 9 3- multiple -endings- end states
 * 3 or more caves
 * 1 jellyfish (don't let anything happen to it)

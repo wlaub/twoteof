@@ -1,8 +1,8 @@
 CompleteScreen:
-    Atlas: 'Endscreens/iambad/TheWednesdayMachine'
+    Atlas: 'Endscreens/iambad/twoteof'
     Title:
-        ASide: 'iambad_WEDNESDAY_COMPLETE'
-        FullClear: 'iambad_WEDNESDAY_COMPLETE'
+        ASide: 'iambad_twoteof_WEDNESDAY_COMPLETE'
+        FullClear: 'iambad_twoteof_WEDNESDAY_COMPLETE'
     Layers:
       - Type: 'layer'
         Images: ['00']

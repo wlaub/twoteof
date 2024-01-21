@@ -1,11 +1,10 @@
 
 iambad_twoteof= The Wednesday On The Edge Of Forever
 iambad_twoteof_1_ch1= Wednesday
-iambad_twoteof_1_ch1_c_01= Wednesday
-iambad_twoteof_1_ch1_f_02= End of Day
+iambad_twoteof_1_ch1_b_00= Wednesday
 poem_iambad_twoteof_1_ch1_A= Adrift in the Time Ocean
 
-iambad_WEDNESDAY_COMPLETE= Wednesday Complete
+iambad_twoteof_WEDNESDAY_COMPLETE= Wednesday Complete
 
 iambad_twoteof_powerdown= A Black Wind Stirs
 iambad_twoteof_refill= Portable Refill Acquired
@@ -24,8 +23,8 @@ iambad_twoteof_yellow2_sub_title=Stratospheric Refuge
 
 iambad_twoteof_red_title=MONOLITH
 iambad_twoteof_red_sub_title=Subterranean Complex
-iambad_twoteof_red2_title=THE DEEPS
-iambad_twoteof_red2_sub_title=Overrun Mining Operation
+iambad_twoteof_red2_title=STONEROT
+iambad_twoteof_red2_sub_title=Overgrown Mining Operation
 
 iambad_twoteof_black_title=SKYCAVE
 iambad_twoteof_black_sub_title=A Distant Light | Salvation?
@@ -51,6 +50,13 @@ twoteof_owo_2=
 when you fight with a {+iambad_WED}
 [MADELINE left togetherZoom]
 you have to think like a star
+
+twoteof_owo_3=
+[MADELINE left together]
+{0.5}
+[MADELINE left togetherZoom]
+aim for the bushes
+
 
 twoteof_where_secret=
 [MADELINE left peaceful]

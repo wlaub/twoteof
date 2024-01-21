@@ -14,12 +14,19 @@ function onBegin()
     player.Speed.X = 0
 
     local second_time = getFlag('Ch1_twoteof_bad_end')
+    local hero = getFlag('eow_sd_active')
+
 
     wait(2)
-    if second_time then
-        miniTextbox('waldmo_BadEnd_2')
+    if hero then
+        miniTextbox('waldmo_BadEnd_3')
+        setFlag('hero_achievement')
     else
-        miniTextbox('waldmo_BadEnd')
+        if second_time then
+            miniTextbox('waldmo_BadEnd_2')
+        else
+            miniTextbox('waldmo_BadEnd')
+        end
     end
 
     wait(5)
