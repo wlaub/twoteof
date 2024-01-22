@@ -1,19 +1,16 @@
-add checkpoint
-set up dc achievement flag
-set up c-10 achievement flag
-set up lightning room achievement flag
-fixed a bug in black wind
-set up fish achievement flag
-added checkpoint images
-added another ending
-set up flag for hero achievement?
-did custom title card stuff
-did end screen
+add some protection to c-12
+set up self destruct sequence
+dirty hack to improve alternate escape sequencing
+place stonerot theme
+place starting theme
+fix right side access to dash overcharge
+make sure you can get back from there
+fixed wrong asset on several liftboost blocks
+added stratopause theme
 
 TODO:
 
-* see if you can trackending state to teleport to location on starting map
-  *a: very conditionally, doesn't work with certain intros
+* node other area themes
 
 * tas route
 
@@ -30,16 +27,7 @@ TODO:
  * put fish back in water
     * fish_done
  * escape the self-destruct a different way
-    * hero_actievement
-
-* custom sound trigger
-  * once per map (flag eow_{eid}_disable)
-  * once per room
-  * music or sound volume
-  * don't interrupt? (doesn't play if static playing flag)
-  * always interrupt? (doesn't set playing flag)
-  * can't interrupt? (sets no interrupt flag)
-  * else: set playing flag on start, don't start if interrupt flag
+    * hero_achievement
 
 * trigger/entity to activate extra sounds mode
     * sets save data enable, adds hooks
@@ -51,15 +39,20 @@ TODO:
 * music
     twm: song of the wanderer (helen humes, neil moret)
     streamfall: spleen
-    stratopause: vortex flow of strength k
-    the rot: the old mind in the desert?
+    stonerot: trembling giant?
 * sounds effects
 * sound placement
-  * self destruct sequence
   * special sound effect when you kill a jellyfish
+     * like a big thunder
   * special sound when you dunk a fish
   * special sound when you trigger spikes in the lightning room
   * trigger sounds on contact with ground or entities
+
+Music:
+Song of the wanderer
+https://soundcloud.com/roots-of-unity/prometheus2test1
+https://soundcloud.com/roots-of-unity/vortex-flow-of-strength-k
+
 
 It has been Wednesday for nearly four years now. Would you like to know why?
 
@@ -112,8 +105,13 @@ song
 you were never seen again
 final cave
 
-* OoT, metroid, et al
+* the metroidvania genre
 area intro cutscenes
+backtracking
+powerups
+
+* the adventure game genre
+if you don't see why then count yourself fortunate
 
 * An Untitled Story
 ending zone color scheme
@@ -149,6 +147,9 @@ how care aout the graphic
 
 * you have to complete the square (secondlawgames)
 a 3-room pygame joke platformer drawn on graph paper. had secrets, a stupid math joke, and referenced current events in video games. spritual predecessor to this map.
+
+* the myth of sisyphus
+am i a cool kid now?
 
 * mostly walking,sean plott
 absurdist mantra this is the game
