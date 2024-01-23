@@ -1,16 +1,40 @@
-add some protection to c-12
-set up self destruct sequence
-dirty hack to improve alternate escape sequencing
-place stonerot theme
-place starting theme
-fix right side access to dash overcharge
-make sure you can get back from there
-fixed wrong asset on several liftboost blocks
-added stratopause theme
+Added missing lookout decal in stonerot
+Tweaked stratopause music
+Fixed jelly death detection
+Remove test jelly
+Did streamslip/streamfall audio decoration
 
 TODO:
+320 = screen width
+160 = half screen
+184 = screen height
+92 = half screen height
 
-* node other area themes
+distance = math.sqrt(345**2+x**2+y**2)
+distance = math.sqrt(345**2+r**2)
+
+distances:
+32 is a tight bubble around the player
+120 fills a small pocket
+240 fills a large area
+320 fills a small room but not a large room
+600 fills a large room
+
+new
+small = 0 - 60   -> 345 - 350
+medium = 0 - 120 -> 345 - 365
+large = 16 - 160 -> 345.5 - 380
+vast = 16 - 320 -> 345.5 - 470
+
+
+old
+small = 32 - 120
+medium = 32 - 240
+large = 60 - 320
+vast = 60 - 600
+
+* looping thunder track
+* make rain louder
 
 * tas route
 
@@ -23,7 +47,8 @@ TODO:
     * streamfall_downclimb_complete
  * blue key without dash refill
  * get to the back of the 2dash room without getting 2dash
-    * reach streamfall without getting any keys
+    * 2dash_backside
+    * reach streamfall without getting any keys (and come back)
  * put fish back in water
     * fish_done
  * escape the self-destruct a different way
@@ -39,7 +64,7 @@ TODO:
 * music
     twm: song of the wanderer (helen humes, neil moret)
     streamfall: spleen
-    stonerot: trembling giant?
+    stonerot: trembling giant
 * sounds effects
 * sound placement
   * special sound effect when you kill a jellyfish
@@ -50,9 +75,9 @@ TODO:
 
 Music:
 Song of the wanderer
-https://soundcloud.com/roots-of-unity/prometheus2test1
+Spleen, https://soundcloud.com/roots-of-unity/prometheus2test1
 https://soundcloud.com/roots-of-unity/vortex-flow-of-strength-k
-
+trembling giant
 
 It has been Wednesday for nearly four years now. Would you like to know why?
 
