@@ -1,16 +1,6 @@
-Added missing lookout decal in stonerot
-Tweaked stratopause music
-Fixed jelly death detection
-Remove test jelly
-Did streamslip/streamfall audio decoration
+tweaked room ambiences
 
 TODO:
-320 = screen width
-160 = half screen
-184 = screen height
-92 = half screen height
-
-distance = math.sqrt(345**2+x**2+y**2)
 distance = math.sqrt(345**2+r**2)
 
 distances:
@@ -26,17 +16,16 @@ medium = 0 - 120 -> 345 - 365
 large = 16 - 160 -> 345.5 - 380
 vast = 16 - 320 -> 345.5 - 470
 
-
-old
-small = 32 - 120
-medium = 32 - 240
-large = 60 - 320
-vast = 60 - 600
-
-* looping thunder track
-* make rain louder
-
 * tas route
+* powerup room ambience/sounds
+* implement audio trigger block groups
+* make 3d audio relative to player instead of camera
+* select music for:
+  * powerups (3)
+  * final cave segments (3)
+  * red key (1)
+  * power off (1)
+  * sw caves (1)
 
 * achievements
  * lightning room special
@@ -67,10 +56,6 @@ vast = 60 - 600
     stonerot: trembling giant
 * sounds effects
 * sound placement
-  * special sound effect when you kill a jellyfish
-     * like a big thunder
-  * special sound when you dunk a fish
-  * special sound when you trigger spikes in the lightning room
   * trigger sounds on contact with ground or entities
 
 Music:
