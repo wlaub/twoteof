@@ -1,13 +1,5 @@
-replace music audio triggers with new plugin
-did more streamslip audio
-did thunderhead/stratopause audio
-did monolith/stonerot audio
-did final cave audio
-added powerup music
-fixed a bug in 2dash back achievement
-added lights off music
-added sw caves music
-added finale cave music
+did new final caves music
+wired up achievements
 
 TODO:
 distance = math.sqrt(345**2+r**2)
@@ -25,8 +17,16 @@ medium = 0 - 120 -> 345 - 365
 large = 16 - 160 -> 345.5 - 380
 vast = 16 - 320 -> 345.5 - 470
 
+small   0-59
+medium  0-119
+large   19-159
+vast    19-319
+vaster  19-491
+
 * maybe find something with a better ending for finalcave 1
+    take the 3 parts of title7 and splace them at different sources
 * also pick something for final room of final cave
+  * trancquiescene
 
 * tas route
 * select music for:
@@ -34,10 +34,14 @@ vast = 16 - 320 -> 345.5 - 470
     dash: https://techtech.technology/en/audio/6/
     2dash: https://techtech.technology/en/audio/40/
     double jump: just the jingle (possible conflict with final cave)
-  * final cave segments (3)
-    https://techtech.technology/en/audio/9/
+  * final cave segments (4)
+X    https://techtech.technology/en/audio/9/
+    https://techtech.technology/en/audio/19/
+    https://techtech.technology/en/audio/21/
+    https://techtech.technology/en/audio/20/
     https://techtech.technology/en/audio/27/
     https://soundcloud.com/roots-of-unity/prom2test2
+    https://soundcloud.com/roots-of-unity/tranquiescence
   * power off (1)
     https://soundcloud.com/roots-of-unity/crows
   * sw caves (1)
