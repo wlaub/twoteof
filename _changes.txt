@@ -1,17 +1,17 @@
-made it possible to get a pink refill out of a room
-added another secret
-
+to test:
+tweaked 2dash door
+added c-03 camera trigger
 
 TODO:
 * achievement for getting to chasm berry without 2dash
 * add a camera trigger to center the camera a little bit on the fish cloud pyramid
 
-* make it possible to take pink refill out of c-04
-* a map that has multiple days where the map is slightly different each day
-    * but they are all wednesday
-* in the first room of streamslip hide a secret where the jellyfish lands after bouncing off the spring
+
 
 2.5 hours to thunderhead
+
+* a map that has multiple days where the map is slightly different each day
+    * but they are all wednesday
 
 
 distance = math.sqrt(345**2+r**2)
