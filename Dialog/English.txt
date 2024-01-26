@@ -136,7 +136,7 @@ twoteof_int_1=
 
 twoteof_int_2=
 [NOISE right normal]
-everyone is the same on in the outsides....
+everyone is the same on the outsides....
 
 twoteof_int_3=
 [NOISE right normal]
@@ -162,11 +162,9 @@ twoteof_int_8=
 [NOISE right normal]
 ... as well be you.
 
-
-
-
-
-
+twoteof_int_9=
+[NOISE right normal]
+... but you're still {*}{>> 0.1} h u n g r y . . . {>>}{/*}
 
 
 
