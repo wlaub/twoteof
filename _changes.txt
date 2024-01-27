@@ -1,14 +1,21 @@
-to test:
-tweaked 2dash door
-added c-03 camera trigger
+make last move in the stairs a little more lenient
+move that one floaty block up a tile
+fixed some read spinners with connections
+fixed audio bug in monolith final room
+fixed cistern warning note not appearing on first visit
+fixed gate sprite in cistern
+fix visible jumpthroughs at end of monolith
+make spleen once per room since it's so short, and that room's so hard
+fixed streamfall finale gate end position
 
 TODO:
-* achievement for getting to chasm berry without 2dash
-* add a camera trigger to center the camera a little bit on the fish cloud pyramid
 
+
+* achievement for getting to chasm berry without 2dash
 
 
 2.5 hours to thunderhead
+1.5 hours to monolith
 
 * a map that has multiple days where the map is slightly different each day
     * but they are all wednesday
