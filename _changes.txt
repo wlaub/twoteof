@@ -1,12 +1,9 @@
-make last move in the stairs a little more lenient
-move that one floaty block up a tile
-fixed some read spinners with connections
-fixed audio bug in monolith final room
-fixed cistern warning note not appearing on first visit
-fixed gate sprite in cistern
-fix visible jumpthroughs at end of monolith
-make spleen once per room since it's so short, and that room's so hard
-fixed streamfall finale gate end position
+made powerup music more reliable
+add another mini secret
+tweak streamfall entrance thunder trigger
+dirty hack to make powerup music play on powerup get
+made gof teleports on-entry so you can't get the key without teleporting
+fixed skip in blue key room
 
 TODO:
 
