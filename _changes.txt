@@ -1,13 +1,7 @@
-fix some missing background tiles in streamslip filler room
-added a fun easter egg
-reduplicate stratopause escape logic gates just in case
-reinforce some note remove flags again
-make end of monolith yellow spinners blue instead
-move labyrinth transmission out of spawn location
-
+make hub room text box trigger a little bigger
+add fades to entry stylegrounds
 
 TODO:
-* test that you can ride that one switchgate down to streamfall
 
 * achievement for getting to chasm berry without 2dash
 * achievement for getting skyfish berry without using the pufferfish
