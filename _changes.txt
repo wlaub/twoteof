@@ -1,15 +1,16 @@
-made powerup music more reliable
-add another mini secret
-tweak streamfall entrance thunder trigger
-dirty hack to make powerup music play on powerup get
-made gof teleports on-entry so you can't get the key without teleporting
-fixed skip in blue key room
+fix some missing background tiles in streamslip filler room
+added a fun easter egg
+reduplicate stratopause escape logic gates just in case
+reinforce some note remove flags again
+make end of monolith yellow spinners blue instead
+move labyrinth transmission out of spawn location
+
 
 TODO:
-
+* test that you can ride that one switchgate down to streamfall
 
 * achievement for getting to chasm berry without 2dash
-
+* achievement for getting skyfish berry without using the pufferfish
 
 2.5 hours to thunderhead
 1.5 hours to monolith
@@ -106,7 +107,7 @@ Map includes the following
 * up to 110-ish rooms
 * 20 wednesday berries
 * -6 1 2- 7? birds
-* 7 acheviements
+* 7 acheviements (might add more)
 * -2 3 4 9 3- multiple -endings- end states
 * 3 or more caves
 * 1 jellyfish (don't let anything happen to it)
@@ -210,6 +211,8 @@ Development Notes
 [I am tired.]
 
 No more. I'm done. All that's left is to go home, get my money, and sleep for the next two years.
+
+This map was intended as a short demo/prototype to try out a way of translating some aspects of the metroidvania genre to Celeste. 
 
 Software
 
