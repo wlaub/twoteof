@@ -1,5 +1,11 @@
-make hub room text box trigger a little bigger
-add fades to entry stylegrounds
+add point of no return warning note to end of sky cave
+fixed a spike in the wrong room
+fixed an unfilled comf in sky cave
+fixed some red spinners with connections
+replace exit block with fake wall to fix respawn change in coolant processing
+added missing alarm audio node
+tweaked generator room
+tweak a jumpthrough and decal in final cave
 
 TODO:
 
@@ -284,3 +290,5 @@ SSH
 dotnet
 ps, kill, pgrep, pkill
 grep
+
+
