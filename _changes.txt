@@ -1,13 +1,17 @@
-add point of no return warning note to end of sky cave
-fixed a spike in the wrong room
-fixed an unfilled comf in sky cave
-fixed some red spinners with connections
-replace exit block with fake wall to fix respawn change in coolant processing
-added missing alarm audio node
-tweaked generator room
-tweak a jumpthrough and decal in final cave
+
+added some spinner in g-06 to enforce intention
+make dash block bigger and add spikes in g-08 to prevent confusion
+fixed gap below g-08 falling block
+move spinners a bit for 2nd bird in g-11 
+move entity remove down to improve reliability
+added additional warning
 
 TODO:
+
+* warning at entry to sky cave
+
+fix those 2 mirrors
+make that long dash bock have spikes on the side
 
 * achievement for getting to chasm berry without 2dash
 * achievement for getting skyfish berry without using the pufferfish
