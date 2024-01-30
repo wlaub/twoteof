@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 fixed a dash block being where a fake wall needed to be
 moved a bullshit spinner
 added a camera trigger to resolve confluence of camera stopping and needing to react
+=======
+>>>>>>> abb941d8a07fd23146758a03f2cdd8e87493f16f
 
 TODO:
 
