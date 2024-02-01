@@ -1,8 +1,4 @@
 
-Fixed some spinner attachment issues
-Fixed tiles making it impossible to read sw caves
-Added helpful spinners to kill you before a room transition
-
 TODO:
 
 * achievement for getting to chasm berry without 2dash
