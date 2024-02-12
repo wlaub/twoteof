@@ -1,5 +1,5 @@
 - Name: The Wednesday On The Edge Of Forever
-  Version: 1.0.6
+  Version: 1.0.7
   Dependencies:
     - Name: CherryHelper
       Version: 1.7.1

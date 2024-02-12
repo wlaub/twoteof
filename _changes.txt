@@ -1,3 +1,4 @@
+fixed a transition tile in the southwestern caves (thx gamation)
 
 TODO:
 
@@ -282,5 +283,62 @@ SSH
 dotnet
 ps, kill, pgrep, pkill
 grep
+
+
+This map contains a number of quotes from other works (spoilers for many small secrets).
+
+From Mondo Medicals by Cactus:
+"EVERYONE IS THE SAME ON THE OUTSIDES
+BUT BIZARRE ON THE INSIDES"
+"WHEN YOU FIGHT WITH A CANCER
+YOU HAVE TO THINK LIKE A STAR"
+
+From Descent by Parallax Software:
+"Self destruct sequence activated"
+"Self destruct in t-minus 10 9 8 7 6 5 4 3 2 1 0"
+
+From Chrono Trigger by Square:
+"But you're still hungry..."
+"You jumped off this mortal coil" is based on "Supid frog! It's time you jumped off this mortal coil!"
+"A black wind stirs" is a based on "the black wind howls" (with a taste of Cave Story)
+
+From Cave Story by Studio Pixel:
+"You were never seen again."
+
+From BEACON by ChevyRay Johnston and Maddie Thorson:
+Not a direct quote, but "A DISTANT LIGHT | SALVATION?" is based on "A SHARP PAIN | BLOOD?" and the other death quotes from the game.
+
+From the soundtrack for An Untitled Story by Maddie Thorson:
+"God was inside us all along."
+
+From journalist William Laurence (by way of braid):
+"On that moment hung enterity. Time stood still."
+
+From Mostly Walking by Sean Plott, Leigh Graner, and Sean Bouchard:
+The absurdist mantra "this is the game."
+
+From Sweet Bro and Hella Jeff by Andrew Hussie:
+"I warned you dog"
+
+From The Northern Caves by nostalgebraist:
+"Don't go into the caves"
+
+From Detective Pony by sonnetstuck:
+"<X> is a pharmakon."
+
+From Polybius:
+"everything is fine."
+
+From TAMER the friendly spam bot:
+"how care aout the graphic"
+
+From The Other Guys (2010) (by way of meme):
+"You thinking what I'm thinking?"
+"Aim for the bushes."
+"There goes my hero."
+
+From everyone's dad:
+"Shade!"
+
 
 
