@@ -1,6 +1,8 @@
 - Name: The Wednesday On The Edge Of Forever
   Version: 1.0.7
   Dependencies:
+    - Name: AurorasHelper
+      Version: 0.9.0
     - Name: CherryHelper
       Version: 1.7.1
     - Name: CommunalHelper
@@ -37,13 +39,11 @@
       Version: 1.2.5
     - Name: SorbetHelper
       Version: 1.1.1
+    - Name: Twoteof Audio
+      Version: 1.0.0
     - Name: VivHelper
       Version: 1.10.11
     - Name: What Are Little Decades Made Of
       Version: 1.0.0
     - Name: XaphanHelper
       Version: 1.0.58
-    - Name: XaphanHelper
-      Version: 1.0.58
-    - Name: Twoteof Audio
-      Version: 1.0.0

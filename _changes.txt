@@ -1,4 +1,5 @@
 fixed a transition tile in the southwestern caves (thx gamation)
+golden berry added (thx Cr33pycat)
 
 TODO:
 
