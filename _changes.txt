@@ -1,5 +1,5 @@
-fixed a transition tile in the southwestern caves (thx gamation)
-golden berry added (thx Cr33pycat)
+fixed crash on loopback ending with golden
+fixed sw caves visible in loopback ending
 
 TODO:
 

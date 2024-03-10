@@ -1,8 +1,8 @@
 - Name: The Wednesday On The Edge Of Forever
-  Version: 1.0.7
+  Version: 1.0.8
   Dependencies:
     - Name: AurorasHelper
-      Version: 0.9.0
+      Version: 0.9.1
     - Name: CherryHelper
       Version: 1.7.1
     - Name: CommunalHelper
