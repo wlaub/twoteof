@@ -1,7 +1,14 @@
-fixed crash on loopback ending with golden
-fixed sw caves visible in loopback ending
+1.0.9:
+Fix a skip
 
 TODO:
+
+a-04
+a-03c
+a-07
+a-06
+
+~260
 
 * achievement for getting to chasm berry without 2dash
 * achievement for getting skyfish berry without using the pufferfish
