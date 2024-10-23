@@ -1,5 +1,6 @@
-1.0.9:
-Fix a skip
+1.0.10:
+Fix a skip harder
+Fix a side effect of the skip fix to make it less punishing
 
 TODO:
 
