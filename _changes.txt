@@ -1,8 +1,12 @@
-1.0.11:
-Fix a screenwrap issue
-Fix an issue where the player could access a room in a way that might break things
+1.0.13:
+shroombooks updated:
+    e-15
+    d-08-x
+    c-01
+    c-08
 
 TODO:
+
 
 a-04
 a-03c
