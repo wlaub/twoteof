@@ -1,5 +1,5 @@
 - Name: The Wednesday On The Edge Of Forever
-  Version: 1.0.13
+  Version: 1.0.14
   Dependencies:
     - Name: AurorasHelper
       Version: 0.9.1
